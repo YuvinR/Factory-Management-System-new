@@ -4,7 +4,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%ArrayList<DistItem> data = (ArrayList)request.getAttribute("data"); %>
+<%
+	ArrayList<DistItem> data = (ArrayList) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,31 +175,33 @@
 					</thead>
 					<tbody>
 						<%
-						IDistItem distitem1 = new IDistItemImpl();
-						ArrayList<DistItem> distitemList = distitem1.viewDistItems();
-						
-						for(DistItem distitemi : distitemList){						
-						
+							IDistItem distitem1 = new IDistItemImpl();
+							ArrayList<DistItem> distitemList = distitem1.viewDistItems();
+
+							for (DistItem distitemi : distitemList) {
 						%>
 
 						<tr>
-							<td> <%= distitemi.getDistributedCode() %></td>
-							<td> <%= distitemi.getItemCode() %> </td>
-							<td> <%= distitemi.getShopId() %> </td>
-							<td> <%= distitemi.getDistributedCount() %> </td>
-							<td> <%= distitemi.getReturnedCount() %> </td>
-							<td> <%= distitemi.getIncome() %> </td>
-							<td> <%= distitemi.getDate() %> </td>
+							<td><%=distitemi.getDistributedCode()%></td>
+							<td><%=distitemi.getItemCode()%></td>
+							<td><%=distitemi.getShopId()%></td>
+							<td><%=distitemi.getDistributedCount()%></td>
+							<td><%=distitemi.getReturnedCount()%></td>
+							<td><%=distitemi.getIncome()%></td>
+							<td><%=distitemi.getDate()%></td>
 							<!--  -->
 							<td><button class="btn btn-success">
 									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
 								</button></td>
-							<td><button class="btn btn-danger"style="margin-left: 10px;">
-								<i class="far fa-trash-alt"></i>
+							<td><button class="btn btn-danger"
+									style="margin-left: 10px;">
+									<i class="far fa-trash-alt"></i>
 								</button></td>
 							<!--  -->
 						</tr>
-						<%} %>
+						<%
+							}
+						%>
 					</tbody>
 				</table>
 			</div>

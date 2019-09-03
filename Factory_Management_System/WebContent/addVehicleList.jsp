@@ -1,12 +1,14 @@
 
 <%@page import="com.itp.distribution.services.IDistVehicleImpl"%>
 <%@page import="com.itp.distribution.model.DistVehicle"%>
-<%@page import="java.util.*" %>
+<%@page import="java.util.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-	<%ArrayList<DistVehicle> data = (ArrayList)request.getAttribute("data"); %>
+
+<%
+	ArrayList<DistVehicle> data = (ArrayList) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -168,32 +170,34 @@
 						</tr>
 					</thead>
 					<tbody>
-						
-					<%
-					IDistVehicleImpl distshop1 = new IDistVehicleImpl();
-					ArrayList<DistVehicle> distshopList = distshop1.viewDistVehicles();
-					
-					for(DistVehicle distvehiclei : distshopList){
-					
-					%>
-					<tr>
-					<td> <%= distvehiclei.getVehicleNumber() %> </td>
-					<td> <%= distvehiclei.getVehicleName() %> </td>
-					<td> <%= distvehiclei.getArea() %> </td>
-					<td> <%= distvehiclei.getDriverCode() %> </td>
-					<td> <%= distvehiclei.getAssistantCode() %> </td>
-					<td> <%= distvehiclei.getDate() %> </td>
-					<!--  -->
-					<td><button class="btn btn-success">
-							<i class="fas fa-pen-square" style="font-size: 15px;"></i>
-						</button></td>
-					<td><button class="btn btn-danger" style="margin-left: 10px;">
-							<i class="far fa-trash-alt"></i>
-						</button></td>
-					<!--  -->
-					</tr>
-					<%} %>
-						
+
+						<%
+							IDistVehicleImpl distshop1 = new IDistVehicleImpl();
+							ArrayList<DistVehicle> distshopList = distshop1.viewDistVehicles();
+
+							for (DistVehicle distvehiclei : distshopList) {
+						%>
+						<tr>
+							<td><%=distvehiclei.getVehicleNumber()%></td>
+							<td><%=distvehiclei.getVehicleName()%></td>
+							<td><%=distvehiclei.getArea()%></td>
+							<td><%=distvehiclei.getDriverCode()%></td>
+							<td><%=distvehiclei.getAssistantCode()%></td>
+							<td><%=distvehiclei.getDate()%></td>
+							<!--  -->
+							<td><button class="btn btn-success">
+									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
+								</button></td>
+							<td><button class="btn btn-danger"
+									style="margin-left: 10px;">
+									<i class="far fa-trash-alt"></i>
+								</button></td>
+							<!--  -->
+						</tr>
+						<%
+							}
+						%>
+
 					</tbody>
 				</table>
 			</div>
