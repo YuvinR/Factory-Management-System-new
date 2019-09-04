@@ -14,6 +14,3 @@
 5.THAWA THIBE NM PASSE KATHA KARAMU ...GOOD LUCK!!!!!!
 
 6.ECLIPSE EKEN GIT DNNA DNNE NTHTM LAPTOP USSAN WARELLA PLEASE!
-
-7.Eka ekkenata wenamama hadana packages tikath danna please....!
-
