@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `shoplist`
+-- Table structure for table `stockinflow`
 --
 
-DROP TABLE IF EXISTS `shoplist`;
+DROP TABLE IF EXISTS `stockinflow`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `shoplist` (
-  `shopId` char(5) NOT NULL,
-  `shopName` varchar(45) NOT NULL,
-  `ownerName` varchar(50) NOT NULL,
-  `contactNo` char(10) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `address` varchar(80) NOT NULL,
-  PRIMARY KEY (`shopId`)
+CREATE TABLE `stockinflow` (
+  `productName` varchar(10) NOT NULL,
+  `productCode` char(5) NOT NULL,
+  `addedStockCount` int(11) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`productCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `shoplist`
+-- Dumping data for table `stockinflow`
 --
 
-LOCK TABLES `shoplist` WRITE;
-/*!40000 ALTER TABLE `shoplist` DISABLE KEYS */;
-INSERT INTO `shoplist` VALUES ('S0001','Test','Test','0710761680','test@gmail.com','malabe'),('S0003','Test','Test','01122248','test@gmail.com','llnn');
-/*!40000 ALTER TABLE `shoplist` ENABLE KEYS */;
+LOCK TABLES `stockinflow` WRITE;
+/*!40000 ALTER TABLE `stockinflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stockinflow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-04 16:49:07
+-- Dump completed on 2019-09-04 19:35:29

@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vehiclelist`
+-- Table structure for table `shoplist`
 --
 
-DROP TABLE IF EXISTS `vehiclelist`;
+DROP TABLE IF EXISTS `shoplist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `vehiclelist` (
-  `vehicleNumber` varchar(10) NOT NULL,
-  `vehicleName` varchar(45) NOT NULL,
-  `area` varchar(45) NOT NULL,
-  `driverCode` char(5) NOT NULL,
-  `assistantCode` char(5) NOT NULL,
-  `date` varchar(45) NOT NULL,
-  PRIMARY KEY (`vehicleNumber`),
-  UNIQUE KEY `vehicleNumber_UNIQUE` (`vehicleNumber`)
+CREATE TABLE `shoplist` (
+  `shopId` char(5) NOT NULL,
+  `shopName` varchar(45) NOT NULL,
+  `ownerName` varchar(50) NOT NULL,
+  `contactNo` char(10) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  PRIMARY KEY (`shopId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `vehiclelist`
+-- Dumping data for table `shoplist`
 --
 
-LOCK TABLES `vehiclelist` WRITE;
-/*!40000 ALTER TABLE `vehiclelist` DISABLE KEYS */;
-INSERT INTO `vehiclelist` VALUES ('DAC-1234','Lorry-Dimo','Colombo','D0001','A0001','2019-12-31'),('DAC-1235','Lorry-Dimo','Colombo','D0001','A0001','2019-12-01');
-/*!40000 ALTER TABLE `vehiclelist` ENABLE KEYS */;
+LOCK TABLES `shoplist` WRITE;
+/*!40000 ALTER TABLE `shoplist` DISABLE KEYS */;
+INSERT INTO `shoplist` VALUES ('S0001','Test','Test','0710761680','test@gmail.com','malabe'),('S0003','Test','Test','01122248','test@gmail.com','llnn');
+/*!40000 ALTER TABLE `shoplist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-04 16:49:07
+-- Dump completed on 2019-09-04 19:35:29
