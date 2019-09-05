@@ -16,32 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `distributeditemlist`
+-- Table structure for table `stockinflow`
 --
 
-DROP TABLE IF EXISTS `distributeditemlist`;
+DROP TABLE IF EXISTS `stockinflow`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `distributeditemlist` (
-  `distributedCode` char(10) NOT NULL,
-  `itemCode` char(5) NOT NULL,
-  `shopId` char(5) NOT NULL,
-  `distributedCount` int(11) DEFAULT NULL,
-  `returnCount` int(11) DEFAULT NULL,
-  `income` int(11) DEFAULT NULL,
+CREATE TABLE `stockinflow` (
+  `productName` varchar(10) NOT NULL,
+  `productCode` char(5) NOT NULL,
+  `addedStockCount` int(11) NOT NULL,
   `date` date NOT NULL,
-  PRIMARY KEY (`distributedCode`)
+  PRIMARY KEY (`productCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `distributeditemlist`
+-- Dumping data for table `stockinflow`
 --
 
-LOCK TABLES `distributeditemlist` WRITE;
-/*!40000 ALTER TABLE `distributeditemlist` DISABLE KEYS */;
-INSERT INTO `distributeditemlist` VALUES ('DC001','IC001','SI001',200,10,1980,'2019-01-01'),('DC002','IC001','S0001',5,3,10,'2019-01-01'),('DC003','IC001','S0001',4,5,4,'2019-02-02'),('DC004','IC001','S0002',4,4,0,'2019-12-01');
-/*!40000 ALTER TABLE `distributeditemlist` ENABLE KEYS */;
+LOCK TABLES `stockinflow` WRITE;
+/*!40000 ALTER TABLE `stockinflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stockinflow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-04 19:35:30
+-- Dump completed on 2019-09-05 10:16:57

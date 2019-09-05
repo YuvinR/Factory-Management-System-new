@@ -1,6 +1,9 @@
 package com.itp.distribution.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,12 +48,20 @@ public class addDistVehicleServlet extends HttpServlet {
 		
 		DistVehicle distvehicle = new DistVehicle();
 		
+		try {
+		java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		
 		distvehicle.setVehicleNumber(request.getParameter("vehiclenumber"));
 		distvehicle.setVehicleName(request.getParameter("vehiclename"));
 		distvehicle.setArea(request.getParameter("area"));
 		distvehicle.setDriverCode(request.getParameter("driverid"));
 		distvehicle.setAssistantCode(request.getParameter("assistantid"));
-		distvehicle.setDate(request.getParameter("date"));
+		distvehicle.setDate(sqlDate);
+		
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		
 		IDistVehicle idistvehicle1 = new IDistVehicleImpl();
