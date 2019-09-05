@@ -1,5 +1,7 @@
 package com.itp.distribution.model;
 
+import java.sql.Date;
+
 public class DistVehicle {
 	
 	private String vehicleNumber;
@@ -12,7 +14,7 @@ public class DistVehicle {
 	
 	private String assistantCode;
 	
-	private String date;
+	private Date date;
 
 	public String getVehicleNumber() {
 		return vehicleNumber;
@@ -54,11 +56,11 @@ public class DistVehicle {
 		this.assistantCode = assistantCode;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	

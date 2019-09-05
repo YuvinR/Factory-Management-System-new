@@ -25,7 +25,7 @@ public class IDistVehicleImpl implements IDistVehicle{
 			pt.setString(3, vehicleNumber.getArea());
 			pt.setString(4, vehicleNumber.getDriverCode());
 			pt.setString(5, vehicleNumber.getAssistantCode());
-			pt.setString(6, vehicleNumber.getDate());
+			pt.setDate(6, vehicleNumber.getDate());
 			
 			pt.executeUpdate();
 			pt.close();
@@ -60,7 +60,7 @@ public class IDistVehicleImpl implements IDistVehicle{
 				ds1.setArea(res.getString("area"));
 				ds1.setDriverCode(res.getString("driverCode"));
 				ds1.setAssistantCode(res.getString("assistantCode"));
-				ds1.setDate(res.getString("date"));
+				ds1.setDate(res.getDate("date"));
 				
 				datarate.add(ds1);
 			}
