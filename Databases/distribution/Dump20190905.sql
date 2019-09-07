@@ -110,7 +110,7 @@ CREATE TABLE `vehiclelist` (
   `area` varchar(45) NOT NULL,
   `driverCode` char(5) NOT NULL,
   `assistantCode` char(5) NOT NULL,
-  `date` varchar(45) NOT NULL,
+  `date` date NOT NULL,
   PRIMARY KEY (`vehicleNumber`),
   UNIQUE KEY `vehicleNumber_UNIQUE` (`vehicleNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -122,7 +122,7 @@ CREATE TABLE `vehiclelist` (
 
 LOCK TABLES `vehiclelist` WRITE;
 /*!40000 ALTER TABLE `vehiclelist` DISABLE KEYS */;
-INSERT INTO `vehiclelist` VALUES ('DAC-1234','Lorry-Dimo','Colombo','D0001','A0001','2019-12-31'),('DAC-1235','Lorry-Dimo','Colombo','D0001','A0001','2019-12-01');
+INSERT INTO `vehiclelist` VALUES ('DAC-1234','Lorry-Dimo','Colombo','D0001','A0001','2019-12-01');
 /*!40000 ALTER TABLE `vehiclelist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -135,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-04 19:35:36
+-- Dump completed on 2019-09-05 10:16:50

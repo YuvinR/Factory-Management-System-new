@@ -178,12 +178,12 @@
 							for (DistVehicle distvehiclei : distshopList) {
 						%>
 						<tr>
-							<td><%=distvehiclei.getVehicleNumber()%></td>
-							<td><%=distvehiclei.getVehicleName()%></td>
-							<td><%=distvehiclei.getArea()%></td>
-							<td><%=distvehiclei.getDriverCode()%></td>
-							<td><%=distvehiclei.getAssistantCode()%></td>
-							<td><%=distvehiclei.getDate()%></td>
+							<td><%= distvehiclei.getVehicleNumber() %></td>
+							<td><%= distvehiclei.getVehicleName() %></td>
+							<td><%= distvehiclei.getArea() %></td>
+							<td><%= distvehiclei.getDriverCode() %></td>
+							<td><%= distvehiclei.getAssistantCode() %></td>
+							<td><%= distvehiclei.getDate() %></td>
 							<!--  -->
 							<td><button class="btn btn-success">
 									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
