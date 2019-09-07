@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +60,7 @@ response.setContentType("text/html");
 		prd.setPid(request.getParameter("pcode"));
 		prd.setPstore(Integer.parseInt(request.getParameter("stid")));
 		prd.setDate(sqlDate);
+		prd.setPrice(Double.parseDouble(request.getParameter("price")));
 		
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -67,6 +69,10 @@ response.setContentType("text/html");
 		
 		productfunction pr1 = new implProduct();
 		pr1.addproduct(prd);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/viewproduct.jsp");
+		dispatcher.forward(request, response);
+
 		
 	}
 

@@ -51,11 +51,18 @@
         Please provide a valid state.
       </div>
     </div>
-       <div class="col-md-6 mb-3">
+       <div class="col-md-3 mb-3">
       <label for="validationCustom05">Date</label>
       <input type="date" class="form-control" id="validationCustom04" name="date"  placeholder="Date" required>
       <div class="invalid-feedback">
         Please provide a valid date.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Price</label>
+      <input type="text" class="form-control" id="validationCustom04" name="price"  placeholder="00.00" required>
+      <div class="invalid-feedback">
+        Please provide a valid price.
       </div>
     </div>
     

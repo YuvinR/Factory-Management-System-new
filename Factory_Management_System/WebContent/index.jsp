@@ -123,7 +123,7 @@
                     <p class="info-width mx-auto">Employee Management</p>
                 </a>
 
-                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards">
+                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards" href="distributionHomepage.jsp">
                     <img src="./images/delivery-truck.png" class="image">
                     <h3 class="overview-header">Distribution Management</h3>
                     <p class="info-width mx-auto">Distribution Management</p>
@@ -135,13 +135,13 @@
                     <p class="info-width mx-auto">Supplier Management</p>
                 </a>
 
-                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards">
+                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards" href="inventory.jsp">
                     <img src="./images/warehouse.png" class="image">
                     <h3 class="overview-header">Inventory Management</h3>
                     <p class="info-width mx-auto">Inventory Management</p>
                 </a>
 
-                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards">
+                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards" href="SalHome.jsp">
                     <img src="./images/Salary.jpg" class="image" style="width: 100px;">
                     <h3 class="overview-header">Salary Management</h3>
                     <p class="info-width mx-auto">Salary Management</p>

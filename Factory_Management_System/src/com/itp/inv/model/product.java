@@ -9,9 +9,16 @@ public class product {
 	private String pid;
 	private int pstore;
 	private Date date;
+	private double price;
 	
 	
-//	public int getTotal() {
+public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	//	public int getTotal() {
 //		return total;
 //	}
 //	public void setTotal(int total) {

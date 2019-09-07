@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -28,10 +28,10 @@
 </head>
 <body>
 <jsp:include page="commonheader.jsp"></jsp:include>
-<br><br>
+<br>
 
 <h2><center>Stock Inflow<center></h2>
-<br><br><br><br><br><br>
+<br>
 
        
 
@@ -42,7 +42,7 @@
  <div class="bt text-right"> <button class="btn btn-primary btn btn-danger" type="submit"  data-toggle="modal" data-target="#exampleModalCenter6">Add Stock</button></div>
         
          <div class="modal fade" id="exampleModalCenter6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
- 			 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+ 			 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     			<div class="modal-content">
       				<div class="modal-header">
        				 <h5 class="modal-title" id="exampleModalCenterTitle">Stock Inflow</h5>
