@@ -57,7 +57,7 @@ public class stockinflow extends HttpServlet {
 
 		
 		stockhandler stk1 = new stockhandlerImpl();
-		stk1.stockadd(stk);
+		stk1.stockadd(stk); 
 		//stockhandler stk2 = new stockhandlerImpl();
 		
 		/*request.setAttribute("data",stk1.viewinflow());

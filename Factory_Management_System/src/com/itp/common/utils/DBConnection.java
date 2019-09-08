@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class DBConnection extends CommonUtilities{
 	
+
 	private static Connection connection;
 //		try {
 //			Class.forName("com.mysql.jdbc.Driver");
@@ -32,9 +33,26 @@ public class DBConnection extends CommonUtilities{
 			connection = DriverManager.getConnection(properties.getProperty(CommonConstants.URL),
 					properties.getProperty(CommonConstants.USERNAME), properties.getProperty(CommonConstants.PASSWORD));
 			System.out.println("Connected");
+			
+			
 		}
 		
 		return connection;
+	}
+	
+	
+	public static Connection getConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory","root","yuvin123");
+			return conn;
+			
+		}catch(ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
 	}
 	
 }

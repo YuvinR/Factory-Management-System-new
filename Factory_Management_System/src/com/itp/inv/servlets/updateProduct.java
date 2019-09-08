@@ -1,7 +1,6 @@
 package com.itp.inv.servlets;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -12,24 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.taglibs.standard.tag.el.fmt.ParseDateTag;
-
-import com.itp.inv.model.*;
-
-import com.itp.inv.services.*;
-
+import com.itp.inv.model.product;
+import com.itp.inv.services.implProduct;
+import com.itp.inv.services.productfunction;
 
 /**
- * Servlet implementation class addproduct
+ * Servlet implementation class updateProduct
  */
-@WebServlet("/addproduct")
-public class addproduct extends HttpServlet {
+@WebServlet("/updateProduct")
+public class updateProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addproduct() {
+    public updateProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -58,17 +54,20 @@ response.setContentType("text/html");
 		
 		prd.setPname(request.getParameter("pname"));
 		prd.setPid(request.getParameter("pcode"));
-		prd.setPstore(Integer.parseInt(request.getParameter("stid")));
+		prd.setPstore(Integer.parseInt(request.getParameter("store")));
 		prd.setDate(sqlDate);
 		prd.setPrice(Double.parseDouble(request.getParameter("price")));
+		
+		System.out.println(request.getParameter("price"));
+		
+		productfunction pr1 = new implProduct();
+		pr1.updateproduct(prd);
 		
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		productfunction pr1 = new implProduct();
-		pr1.addproduct(prd);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/viewproduct.jsp");
 		dispatcher.forward(request, response);
@@ -76,4 +75,6 @@ response.setContentType("text/html");
 		
 	}
 
-}
+	}
+
+

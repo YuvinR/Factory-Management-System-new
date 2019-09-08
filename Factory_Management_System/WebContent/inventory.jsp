@@ -76,8 +76,8 @@
            <h3  class="title">Add Product</h3>
                <span class="post">add new Product</span>
           </div>
-          <div class="bt"> <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModalCenter1">Add Products</button></div>
-       <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="bt"> <a href="viewproduct.jsp"><button class="btn btn-primary" type="submit">Add Products</button></a></div>
+       <%-- <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
  			 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     			<div class="modal-content">
       				<div class="modal-header">
@@ -95,7 +95,7 @@
       </div>
      </div>
   	</div>
-   </div>
+   </div> --%>
        
         </div>
        </div>
@@ -110,9 +110,9 @@
            <h3  class="title">Stock Inflow</h3>
                <span class="post">Add new Stock</span>   
            </div>
-           <div class="bt"> <button class="btn btn-primary" type="submit"  data-toggle="modal" data-target="#exampleModalCenter2">Add Stock</button></div>
+           <div class="bt"> <a  href="viewinflow.jsp"><button class="btn btn-primary" type="submit">Add Stock</button></a></div>
          
-         <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <%--    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
  			 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     			<div class="modal-content">
       				<div class="modal-header">
@@ -130,7 +130,7 @@
       </div>
      </div>
   	</div>
-   </div>
+   </div> --%>
        
          
          </div>
