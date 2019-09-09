@@ -1,7 +1,7 @@
 package com.itp.salary.services;
 
 import java.sql.Connection;
-//import java.sql.Connection;
+//import java.sql.Connection;=[
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,9 +19,9 @@ public class IAttendanceImpl implements IAttendance{
 		try {
 			PreparedStatement pStatement = conn.prepareStatement("INSERT INTO dailyattendance_table values(?,?,?,?)");
 			pStatement.setString(1,addattendance.getEmp_Id());
-			pStatement.setString(2, addattendance.getDate());
-			pStatement.setString(3, addattendance.getArrival_time());
-			pStatement.setString(4, addattendance.getDeparture_time());
+			pStatement.setDate(2, addattendance.getDate());
+			pStatement.setTime(3, addattendance.getArrival_time());
+			pStatement.setTime(4, addattendance.getDeparture_time());
 			pStatement.executeUpdate();
 			pStatement.close();
 			conn.close();
@@ -43,9 +43,9 @@ public class IAttendanceImpl implements IAttendance{
 			while(res.next()) {
 				Attendance Vattendance=new Attendance();
 				Vattendance.setEmp_Id(res.getString("Emp_Id"));
-				Vattendance.setDate(res.getString("date"));
-				Vattendance.setArrival_time(res.getString("Arrival_time"));
-				Vattendance.setDeparture_time(res.getString("Departure_time"));
+				Vattendance.setDate(res.getDate("date"));
+				Vattendance.setArrival_time(res.getTime("Arrival_time"));
+				Vattendance.setDeparture_time(res.getTime("Departure_time"));
 				
 				datarate.add(Vattendance);
 				

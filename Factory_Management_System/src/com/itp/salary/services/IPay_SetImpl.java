@@ -58,6 +58,27 @@ public class IPay_SetImpl implements IPay_Set{
 		return datarate;
 	
 	}
+
+	@Override
+	public void removefunc(String idx) {
+		// TODO Auto-generated method stub
+		Connection conn = DBConnection.getConnection();
+		try {
+			PreparedStatement stmt=conn.prepareStatement("delete from payment_setting where Payment_Type='"+idx+"'");
+			
+			stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+		
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 }
