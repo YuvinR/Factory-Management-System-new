@@ -127,14 +127,15 @@
 							<input class="form-control my-0 py-1 purple-border" type="text"
 								placeholder="Search" aria-label="Search" style="width: 300px;">
 							<div class="input-group-append">
+
 								<a><button
 										class="btn btn-search input-group-text purple lighten-1"
 										id="basic-text1" style="background: #4628B8;">
 										<i class="fas fa-search text-white" aria-hidden="true"></i>
 									</button> </a>
+
 							</div>
 						</div>
-
 					</div>
 
 					<div class="col col-lg-2">
@@ -181,27 +182,39 @@
 							for (DistItem distitemi : distitemList) {
 						%>
 
+
 						<tr>
-							<td><%= distitemi.getDistributedCode() %></td>
-							<td><%= distitemi.getItemCode()%></td>
-							<td><%= distitemi.getShopId()%></td>
-							<td><%= distitemi.getDistributedCount()%></td>
-							<td><%= distitemi.getReturnedCount()%></td>
-							<td><%= distitemi.getIncome()%></td>
-							<td><%= distitemi.getDate()%></td>
+							<td><%=distitemi.getDistributedCode()%></td>
+							<td><%=distitemi.getItemCode()%></td>
+							<td><%=distitemi.getShopId()%></td>
+							<td><%=distitemi.getDistributedCount()%></td>
+							<td><%=distitemi.getReturnedCount()%></td>
+							<td><%=distitemi.getIncome()%></td>
+							<td><%=distitemi.getDate()%></td>
 							<!--  -->
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
+							<form method="post" action="deleteDistItemServlet">
+							<td>
+								<button class="btn btn-success" name="update"
+									value=<%=distitemi.getDistributedCode()%>
+									style="font-size: 15px;">
+									<i class="fas fa-pen-square"></i>
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-danger" name="delete"
+									value=<%=distitemi.getDistributedCode()%>
 									style="margin-left: 10px;">
 									<i class="far fa-trash-alt"></i>
-								</button></td>
+								</button>
+							</td>
+							</form>
 							<!--  -->
 						</tr>
+
 						<%
 							}
 						%>
+
 					</tbody>
 				</table>
 			</div>
@@ -281,12 +294,12 @@
 								placeholder="Please enter a Date" name="date" required>
 							<div class="invalid-feedback">Please provide a Date.</div>
 						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-primary btn-block" type="submit">Add</button>
+						</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button class="btn btn-primary btn-block" type="submit">
-						Add</button>
-				</div>
-				</form>
 			</div>
 		</div>
 	</div>
