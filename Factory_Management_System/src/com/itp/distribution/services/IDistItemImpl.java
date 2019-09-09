@@ -76,4 +76,25 @@ public class IDistItemImpl implements IDistItem{
 		return datarate;
 	}
 
+	@Override
+	public void removeFunc(String dCode) {
+		// TODO Auto-generated method stub
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement("DELETE FROM distributeditemlist WHERE distributedcode='"+dCode+"'");
+			
+			stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }
