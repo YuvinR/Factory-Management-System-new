@@ -48,6 +48,9 @@ public class deleteDistItemServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addItemList.jsp");
 			dispatcher.forward(request, response);
 		}
+		if(request.getParameter("update") != null) {
+			
+		}
 	}
 
 }
