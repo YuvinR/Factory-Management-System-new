@@ -192,7 +192,7 @@
 							<td><%=distitemi.getIncome()%></td>
 							<td><%=distitemi.getDate()%></td>
 							<!--  -->
-							<form method="post" action="deleteDistItemServlet">
+							<form method="post" action="deleteDistShopServlet">
 							<td>
 								<button class="btn btn-success" name="update"
 									value=<%=distitemi.getDistributedCode()%>

@@ -75,5 +75,26 @@ public class IDistShopImpl implements IDistShop{
 		return datarate;
 	}
 
+	@Override
+	public void removeFunc(String Sid) {
+		// TODO Auto-generated method stub
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement("DELETE FROM shoplist WHERE shopId='"+Sid+"'");
+			
+			stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 
 }
