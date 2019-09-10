@@ -77,4 +77,25 @@ public class IDistVehicleImpl implements IDistVehicle{
 		return datarate;
 	}
 
+	@Override
+	public void removeFunc(String Vno) {
+		// TODO Auto-generated method stub
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement("DELETE FROM vehiclelist WHERE vehicleNumber='"+Vno+"'");
+			
+			stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 }

@@ -185,13 +185,21 @@
 							<td><%=distvehiclei.getAssistantCode()%></td>
 							<td><%=distvehiclei.getDate()%></td>
 							<!--  -->
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
+							<form method="post" action="deleteDistShopServlet">
+							<td>
+								<button class="btn btn-success" name="update"
+									value="" style="font-size: 15px;">
+									<i class="fas fa-pen-square"></i>
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-danger" name="delete"
+									value=<%=distvehiclei.getVehicleNumber()%>
 									style="margin-left: 10px;">
 									<i class="far fa-trash-alt"></i>
-								</button></td>
+								</button>
+							</td>
+							</form>
 							<!--  -->
 						</tr>
 						<%
@@ -273,12 +281,12 @@
 								placeholder="Please enter a Date" name="date" required>
 							<div class="invalid-feedback">Please provide a Date.</div>
 						</div>
+	
+						<div class="modal-footer">
+							<button class="btn btn-primary btn-block" type="submit">Add</button>
+						</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button class="btn btn-primary btn-block" type="submit">
-						Add</button>
-				</div>
-				</form>
 			</div>
 		</div>
 	</div>
