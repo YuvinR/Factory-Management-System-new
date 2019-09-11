@@ -97,4 +97,80 @@ public class IDistItemImpl implements IDistItem{
 		
 	}
 
+	@Override
+	public ArrayList<DistItem> searchById(String dCode) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<DistItem> data = new ArrayList<DistItem>();
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			Statement st = conn.createStatement();
+			
+			String sql = "SELECT * FROM distributeditemlist WHERE distributedcode='"+dCode+"'";
+			ResultSet res1 = st.executeQuery(sql);
+			
+			while(res1.next()) {
+				DistItem st1 = new DistItem();
+				
+				st1.setDistributedCode(res1.getString("distributedcode"));
+				st1.setItemCode(res1.getString("itemcode"));
+				st1.setShopId(res1.getString("shopid"));
+				st1.setDistributedCount(res1.getInt("distributedcount"));
+				st1.setReturnedCount(res1.getInt("returncount"));
+				st1.setIncome(res1.getInt("income"));
+				st1.setDate(res1.getDate("date"));
+				
+				data.add(st1);
+			}
+			
+			st.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return data;
+		
+	}
+
+	@Override
+	public void updateDistItem(DistItem distribuItem) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			
+			String sql = "UPDATE distributeditemlist SET itemcode =?, shopid=?,distributedcount=?,returncount=?,income=?,date=? WHERE distributedcode='"+distribuItem.getDistributedCode()+"'";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, distribuItem.getItemCode());
+			ps.setString(2, distribuItem.getShopId());
+			ps.setInt(3, distribuItem.getDistributedCount());
+			ps.setInt(4, distribuItem.getReturnedCount());
+			ps.setInt(5, distribuItem.getIncome());
+			ps.setDate(6, distribuItem.getDate());
+			int i = ps.executeUpdate();
+			System.out.println(distribuItem.getDistributedCode());
+			System.out.println(distribuItem.getDate());
+			if(i > 0) {
+				System.out.println("Record Updated Successfuly");
+			}else {
+				System.out.println("There is a problem in updating Record.");
+			}
+			ps.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+
 }

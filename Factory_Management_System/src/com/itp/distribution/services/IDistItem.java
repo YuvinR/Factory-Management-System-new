@@ -9,6 +9,8 @@ public interface IDistItem {
 	public void addDistItem(DistItem distribuItem);
 	public ArrayList<DistItem>viewDistItems();
 	public  void removeFunc(String dCode);
-	public ArrayList<DistItem>updateDistItems();
+	public ArrayList<DistItem> searchById(String dCode);
+	public void updateDistItem(DistItem distribuItem);
+	
 
 }

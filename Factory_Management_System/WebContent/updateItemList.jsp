@@ -1,95 +1,124 @@
+<!--  -->
+<%@page import="com.itp.distribution.services.*"%>
+<%@page import="com.itp.distribution.model.*"%>
+
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" href="styles/stylesheet.css">
+<!--***nav bar css*** -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a65579f16a.js"></script>
+
+<%
+	ArrayList<IDistItem> data = (ArrayList) request.getAttribute("data");
+%>
+
 <title>Insert title here</title>
 </head>
 <body>
 
+	<%
+		for (int rec = 0; rec < data.size(); rec++) {
+	%>
 
-	<!-- start of action button -->
+	<%
+		DistItem idi = (DistItem) data.get(rec);
+			System.out.println(idi.getDistributedCode());
+	%>
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content" style="background-color: #fefefe;">
-				<div class="modal-header">
-					<h4 class="modal-title">Add Item</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
+	<div class="modal-dialog modal-dialog-centered modal-lg"
+		role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Update
+					Item</h5>
 
-					<form id="log" class="needs-validation" novalidate method="post"
-						action="addDistItemServlet">
+			</div>
+			<div class="modal-body">
 
-						<div class="form-group">
-							<label for="validation1">Distributed Code</label> <input
-								type="text" class="form-control" id="validation1"
-								placeholder="Please enter a Distribution Code"
-								name="distributioncode" required>
-							<div class="invalid-feedback">Please provide a Distributed
-								Code.</div>
-						</div>
+				<form id="log" class="needs-validation" novalidate method="post"
+					action="updateDistItemList">
 
-						<div class="form-group">
-							<label for="validation2">Item Code</label> <input type="text"
-								class="form-control" id="validation2"
-								placeholder="Please enter a Item Code" name="itemcode" required>
-							<div class="invalid-feedback">Please provide a Item Code.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation1">Distributed Code</label> <input
+							type="text" class="form-control" id="validation1"
+							name="distributioncode" value=<%=idi.getDistributedCode()%>
+							required>
+						<div class="invalid-feedback">Please provide a Distributed
+							Code.</div>
+					</div>
 
-						<div class="form-group">
-							<label for="validation3">Shop Id</label> <input type="text"
-								class="form-control" id="validation3"
-								placeholder="Please enter Shop Id" name="shopid" required>
-							<div class="invalid-feedback">Please provide a Shop Id.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation2">Item Code</label> <input type="text"
+							class="form-control" id="validation2" name="itemcode"
+							value=<%=idi.getItemCode()%> required>
+						<div class="invalid-feedback">Please provide a Item Code.</div>
+					</div>
 
-						<div class="form-group">
-							<label for="validation4">Distributed Count</label> <input
-								type="number" class="form-control" id="validation4"
-								placeholder="Please enter a Distributed Count"
-								name="distributioncount" required>
-							<div class="invalid-feedback">Please provide a Distributed
-								Count.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation3">Shop Id</label> <input type="text"
+							class="form-control" id="validation3" name="shopid"
+							value=<%=idi.getShopId()%> required>
+						<div class="invalid-feedback">Please provide a Shop Id.</div>
+					</div>
 
-						<div class="form-group">
-							<label for="validation5">Return Count</label> <input
-								type="number" class="form-control" id="validation5"
-								placeholder="Please enter a Return Count" name="returncount"
-								required>
-							<div class="invalid-feedback">Please provide a Return
-								Count.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation4">Distributed Count</label> <input
+							type="number" class="form-control" id="validation4"
+							name="distributioncount" value=<%=idi.getDistributedCount()%>
+							required>
+						<div class="invalid-feedback">Please provide a Distributed
+							Count.</div>
+					</div>
+					<div class="form-group">
+						<label for="validation5">Return Count</label> <input type="number"
+							class="form-control" id="validation5" name="returncount"
+							value=<%=idi.getReturnedCount()%> required>
+						<div class="invalid-feedback">Please provide a Return Count.</div>
+					</div>
 
-						<div class="form-group">
-							<label for="validation6">Income</label> <input type="number"
-								class="form-control" id="validation6"
-								placeholder="Please enter the Income" name="income" required>
-							<div class="invalid-feedback">Please provide the Income.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation6">Income</label> <input type="number"
+							class="form-control" id="validation6" name="income"
+							value=<%=idi.getIncome()%> required>
+						<div class="invalid-feedback">Please provide the Income.</div>
+					</div>
 
-						<div class="form-group">
-							<label for="validation6">Date</label> <input type="date"
-								class="form-control" id="validation7"
-								placeholder="Please enter a Date" name="date" required>
-							<div class="invalid-feedback">Please provide a Date.</div>
-						</div>
+					<div class="form-group">
+						<label for="validation6">Date</label> <input type="date"
+							class="form-control" id="validation7" name="date"
+							value=<%=idi.getDate()%> required>
+						<div class="invalid-feedback">Please provide a Date.</div>
+					</div>
 
-						<div class="modal-footer">
-							<button class="btn btn-primary btn-block" type="submit">Add</button>
-						</div>
-					</form>
-				</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary btn-block" type="submit">Update</button>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
+
+	<%
+		}
+	%>
 
 
 

@@ -1,6 +1,7 @@
 package com.itp.distribution.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itp.distribution.model.DistItem;
+import com.itp.distribution.services.IDistItem;
+import com.itp.distribution.services.IDistItemImpl;
 import com.itp.distribution.services.IDistVehicle;
 import com.itp.distribution.services.IDistVehicleImpl;
 
