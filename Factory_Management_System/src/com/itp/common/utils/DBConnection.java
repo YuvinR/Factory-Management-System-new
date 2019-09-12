@@ -30,7 +30,9 @@ public class DBConnection extends CommonUtilities{
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/factory_management_system","root","root");
+
 			return conn;
 			
 		}catch(ClassNotFoundException | SQLException e) {
