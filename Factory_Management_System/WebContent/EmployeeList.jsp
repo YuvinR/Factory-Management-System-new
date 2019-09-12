@@ -295,7 +295,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="container">
-						<form method="POST" action="UpdateEmployeeServlet"
+						<form id="empRegister" method="POST" action="UpdateEmployeeServlet"
 							enctype="multipart/form-data">
 							<div class="custom-file col-md-4 center"
 										style="margin-left: 200px;">
@@ -419,7 +419,7 @@
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">First Name</label> <input
 												type="text" class="form-control" id="inputEmail4"
-												placeholder="First Name" name="fname">
+												placeholder="First Name" name="fname" requried>
 										</div>
 										<div class="form-group col-md-6">
 											<label>Unit</label> <select id="inputUnit" name="unit"
@@ -435,7 +435,7 @@
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">Last Name</label> <input type="text"
 												class="form-control" name="lname" id="inputEmail4"
-												placeholder="Last Name">
+												placeholder="Last Name" requried>
 										</div>
 										<div class="form-group col-md-6">
 											<label>Designation</label> <select id="inputDesig"
@@ -473,36 +473,36 @@
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">Email</label> <input type="email"
 												class="form-control" name="email" id="inputEmail4"
-												placeholder="Email">
+												placeholder="Email" requried>
 										</div>
 										<div class="form-group col-md-6">
 											<label for="inputUsername">Username</label> <input
 												type="text" class="form-control" name="username"
-												id="inputUsername" placeholder="Username">
+												id="inputUsername" placeholder="Username" requried>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputContact">Contact</label> <input type="text"
 												class="form-control" name="contact" id="inputContact"
-												placeholder="Contact">
+												placeholder="Contact" requried>
 										</div>
 										<div class="form-group col-md-6">
 											<label for="inputPwrd">Create Password</label> <input
 												type="password" class="form-control" name="createPwrd"
-												id="inputPwrd" placeholder="Password">
+												id="inputPwrd" placeholder="Password" requried>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputContact">Address</label> <input type="text"
 												class="form-control" name="address" id="inputContact"
-												placeholder="Address">
+												placeholder="Address" requried>
 										</div>
 										<div class="form-group col-md-6">
 											<label for="confirmPwrd">Confirm Password</label> <input
 												type="password" class="form-control" name="confirmPwrd"
-												id="confirmPwrd" placeholder="Confirm Password">
+												id="confirmPwrd" placeholder="Confirm Password" requried>
 										</div>
 									</div>
 

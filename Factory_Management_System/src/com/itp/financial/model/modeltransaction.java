@@ -1,8 +1,8 @@
 package com.itp.financial.model;
+import java.sql.Date;
 
 public class modeltransaction {
-
-	private int TransactionCode;
+	private String TransactionCode;
 	
 	private int AccountNo;
 	
@@ -10,16 +10,16 @@ public class modeltransaction {
 	
 	private String Type;
 	
-	private String Date;
+	private Date Date;
 	
-	private String Amount;
+	private Double Amount;
 
-	public int getTransactionCode() {
+	public String getTransactionCode() {
 		return TransactionCode;
 	}
 
-	public void setTransactionCode(int transactionCode) {
-		TransactionCode = transactionCode;
+	public void setTransactionCode(String string) {
+		TransactionCode = string;
 	}
 
 	public int getAccountNo() {
@@ -46,21 +46,20 @@ public class modeltransaction {
 		Type = type;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return Date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		Date = date;
 	}
 
-	public String getAmount() {
+	public Double getAmount() {
 		return Amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(Double amount) {
 		Amount = amount;
 	}
 
 }
-

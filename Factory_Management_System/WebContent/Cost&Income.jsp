@@ -1,6 +1,9 @@
-<%@page import="com.itp.financial.services.CostIncomeimpl"%>
-<%@page import="com.itp.financial.services.CostIncomei"%>
+<%@page import="com.itp.financial.services.Costimpl"%>
+<%@page import="com.itp.financial.services.Costi"%>
 <%@page import="com.itp.financial.model.modelcost"%>
+<%@page import="com.itp.financial.services.Incomeimpl"%>
+<%@page import="com.itp.financial.services.Incomei"%>
+<%@page import="com.itp.financial.model.modelincome"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,36 +14,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <!--  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    Font Awesome
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    Bootstrap CDN and external CSS
+    <!-- Bootstrap CDN and external CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="./css/dashBoardStyleSheet.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/table.css"> -->
+    <link rel="stylesheet" href="./css/table.css">
 
-<title>Bank Transaction</title>
-    <link rel="stylesheet" href="styles/FinancialStylesheet.css"> <!--***nav bar css*** -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/a65579f16a.js"></script>
-    
+
+    <title>Cost and Income</title>
 </head>
-
 <body>
-
-    <div class="container-fluid">
+ <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="index.jsp">
                 Bakthi Herbal Lanka
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,7 +99,7 @@
                     <a href="Cost&Income.jsp">Cost & Income Analysis</a>
                 </li>
               
-                <li>
+              <li>
                     <a href="BankTransaction.jsp">Bank Transaction</a>
                 </li>
                 <li>
@@ -138,7 +132,7 @@
 
               <div class="row">
     <div class="col">
-      <h4 style="text-align: left;">Cost & Income Table</h4>
+      <h4 style="text-align: left;">Cost Table</h4>
     </div>
 
     <div class="col-md-auto">
@@ -160,7 +154,7 @@
     
      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal" style="background:#4628B8; color:white; width:165px; height:39px;">
           <i class="fas fa-plus"></i>
-          <span>Add Costs</span> 
+          <span>Add Cost</span> 
       </button>
       
       
@@ -174,8 +168,7 @@
           <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
                 <thead>
                     <tr class="p-3 mb-2 bg-success text-white">
-                        <th scope="col">Cost Code</th>
-                        <th scope="col">Account No</th>
+                         <th scope="col">Cost Code</th>
                         <th scope="col">Description</th>
                         <th scope="col">Type</th>
                         <th scope="col">Date</th>
@@ -186,12 +179,12 @@
                 </thead>
 
 
-					<tbody>
-					<%
-						CostIncomei costIncomei = new CostIncomeimpl();
-						ArrayList<modelcost> costList = costIncomei.vieModelcosts();
-						
-						for(modelcost m : costList){
+                <tbody>
+               <%
+						Costi costIncomei = new Costimpl();
+						ArrayList<modelcost> costList = costIncomei.viewModelcosts();
+												
+					for(modelcost m : costList){
 					%>
 						<tr>
 						<!-- <th scope="row"></th> -->
@@ -203,13 +196,16 @@
 							<!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
 							<!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td> -->
-							<td><button class="btn btn-success">
+						  <form method="post" action="Financialtableop" >
+							<td><button class="btn btn-success" name="update" value=<%= m.getCostCode() %>>
 									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
 								</button></td>
 							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
+									style="margin-left: 10px;" name="Remove"value=<%= m.getCostCode() %>>
 									<i class="far fa-trash-alt"></i>
 								</button></td>
+								</form>
+								
 						</tr>
 					<%} %>
 
@@ -227,7 +223,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
                   <div class="modal-header">
-                    <h4 class="modal-title">Add Cost Details</h4>
+                    <h4 class="modal-title">Add Costs Details</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -235,11 +231,11 @@
                   <div class="modal-body">
 
 
-<form method ="post" action="CostIncome" id = "log" class="needs-validation" novalidate>
+<form method ="post" action="Cost" id = "log" class="needs-validation" novalidate>
 
-                    <div class="form-group">
+                   <div class="form-group">
                         <label for="validation1">Cost Code</label>
-                        <input type="text" class="form-control" id="validation1" placeholder="Please enter a Transaction Code" name ="CostCode"  required>
+                        <input type="" class="form-control" id="validation1" placeholder="Please enter a Cost Code" name ="CostCode" required>
                         <div class="invalid-feedback">
                             Please provide a Cost Code.
                         </div>
@@ -263,7 +259,7 @@
                     
                     <div class="form-group">
                         <label for="validation5">Date</label>
-                        <input type="text" class="form-control" id="validation5" placeholder="Please enter a Return Count" name ="Date" required>
+                        <input type="date" class="form-control" id="validation5" placeholder="Please enter a Return Count" name ="Date" required>
                         <div class="invalid-feedback">
                             Please provide a Date.
                         </div>
@@ -303,12 +299,7 @@
                 });
             </script>
 
-            <script>
-                $(document).ready(function () {
-                  $('#dtBasicExample').DataTable();
-                  $('.dataTables_length').addClass('bs-select');
-                });
-            </script>
-</body>
+        
+</body>    
 
 </html>

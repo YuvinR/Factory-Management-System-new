@@ -1,16 +1,17 @@
 package com.itp.financial.model;
+import java.sql.Date;
 
 public class modelcost {
 
-private int CostCode;
+	private int CostCode;
 	
 	private String Description;
 	
 	private String Type;
 	
-	private String Date;
+	private Date Date;
 	
-	private String Amount;
+	private Double Amount;
 
 	public int getCostCode() {
 		return CostCode;
@@ -36,20 +37,19 @@ private int CostCode;
 		Type = type;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return Date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		Date = date;
 	}
 
-	public String getAmount() {
+	public Double getAmount() {
 		return Amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(Double amount) {
 		Amount = amount;
 	}
-	
 }

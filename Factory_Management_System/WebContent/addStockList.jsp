@@ -32,6 +32,157 @@
 
 <body>
 
+<<<<<<< HEAD
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
+            <a class="navbar-brand logo" href="index.jsp">
+                Bakthi Herbal Lanka
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            Features
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            Staff
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            Help
+                        </a>
+                    </li>
+                    <!-- <h6 class="pt-3 ml-auto" style="font-size: 0.9rem;">User Name</h5> -->
+                    <li class="nav-item avatar">
+                        <a class="nav-link p-0" href="#">
+                            <span>
+
+                            </span>
+                            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small name">Administrator</span>
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+        <!-- SideBar  -->
+        <nav id="sidebar" class="navbar-expand-md mb-5" style="margin-top: -40px">
+            <div class="sidebar-header  row" style="width: 265px;">
+                <!-- <h3>Bootstrap SideBar</h3> -->
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="65">
+                <h5 class="mt-4 ml-3">Name</h5>
+            </div>
+
+            <ul class="list-unstyled components mb-2">
+                <p>DashBoard</p>
+                    <li class="active">
+                        <a href="#nowIn" >Stock InFlow</a>
+                    </li>
+                    <li>
+                        <a href="#DistShop">Distribution Shops</a>
+                    </li>
+                    <li>
+                       <a href="#DisItem">Distribution Items</a>
+                    </li>
+                    <li>
+                        <a href="#DisVehicle">Distributing Vehicles</a>
+                    </li>
+             </ul>
+
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar-expand-md mb-4 toggle-bar">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="background:#4628B8">
+                        <i class="fas fa-align-left"></i>
+                        <span>Dashboard</span>
+                    </button>
+                </div>
+            </nav>
+
+
+
+            <div class="container">
+
+              <div class="row">
+    <div class="col">
+      <h4 style="text-align: left;">Distribution List Table</h4>
+    </div>
+
+    <div class="col-md-auto">
+
+      <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 purple-border" type="text" placeholder="Search" aria-label="Search" style="width:300px;">
+        <div class="input-group-append">
+          <a><button class="btn btn-search input-group-text purple lighten-1" id="basic-text1" style="background:#4628B8;"><i class="fas fa-search text-white"
+              aria-hidden="true" ></i></button>
+        </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col col-lg-2">
+    
+    
+    
+      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal" style="background:#4628B8; color:white; width:165px; height:39px;">
+          <i class="fas fa-plus"></i>
+          <span>Add Stock</span> 
+          
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<br/>
+  <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
+                <thead>
+                    <tr class="p-3 mb-2 bg-success text-white">
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Code</th>
+                        <th scope="col">Added Stock Count</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">edit</th>
+                        <th scope="col">delete</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <tr>
+                        <td>Bathi pooja</td>
+                        <td>bp001</td>
+                        <td>100</td>
+                        <td>2019/08/15</td>
+                        <!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+=======
 	<div class="container-fluid">
 
 		<nav
@@ -165,6 +316,7 @@
 							<td>2019/08/15</td>
 							<!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
 							<!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+>>>>>>> 560aa5323ebc1bb38c25adcb4c3acc49a895dc58
                         <td><i class='fas fa-times' style="color:red;"></i></td> -->
 							<td><button class="btn btn-success">
 									<i class="fas fa-pen-square" style="font-size: 15px;"></i>
