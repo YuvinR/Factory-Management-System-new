@@ -86,7 +86,7 @@ public class implProduct implements productfunction{
 	@Override
 	public void removeProduct(String pid) {
 		// TODO Auto-generated method stub
-		System.out.println(pid);
+		  
 		Connection conn = DBConnection.getConnection();
 		try {
 			PreparedStatement stmt=conn.prepareStatement("delete from product where pid='"+pid+"'");
@@ -150,48 +150,32 @@ ArrayList<product> data = new ArrayList<product>();
 	}
 
 	@Override
-	public void updateproduct(product prd) {
+	public void updateproduct(product prdx) {
 		// TODO Auto-generated method stub
-		Connection conn = DBConnection.getConnection();
+		
 		try {
-			/*PreparedStatement prst = conn.prepareStatement("UPDATE product\r\n" + 
-					"SET pname = '"+prd.getPid()+"', storeid='"+prd.getPstore()+"',date='"+prd.getDate()+"',price='"+prd.getPrice()+"' \r\n" + 
-					"WHERE pid='"+prd.getPid()+"'");
+   
+			Connection conn = DBConnection.getConnection();
+			String pid =prdx.getPid();
+
+		
+			PreparedStatement ps = conn.prepareStatement("UPDATE Product SET pname ='"+prdx.getPname()+"', storeid="+prdx.getPstore()+",date='"+prdx.getDate()+"',price="+prdx.getPrice()+" WHERE pid='"+pid+"';");
+			ps.execute();
 			
-prst.executeUpdate();
-			
-			prst.close();
-			conn.close();*/
-			
-			
-			
-			String sql="UPDATE product SET pname =?, storeid=?,date=?,price=? WHERE pid='"+prd.getPid()+"'";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			
-			ps.setString(1, prd.getPname());
-			ps.setInt(2, prd.getPstore());
-			ps.setDate(3,prd.getDate());
-			ps.setDouble(4,prd.getPrice());
-			int i = ps.executeUpdate();
-			System.out.println(prd.getPrice());
-			if(i > 0)
-			{
-			System.out.print("Record Updated Successfully");
-			}
-			else
-			{
-			System.out.print("There is a problem in updating Record.");
-			}
 			ps.close();
+			
 			conn.close();
 		  
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println(e);
 		}
-	}}
+	}
 	
+
+}
 	
 
 	

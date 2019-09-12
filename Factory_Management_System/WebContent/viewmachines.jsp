@@ -1,4 +1,4 @@
-<%@page import="com.itp.services.Iaddequipmentimpi"%>
+<%--  <%@page import="com.itp.services.Iaddequipmentimpi"%>
 <%@page import="com.itp.util.CommonUtilities"%>
 <%@page import="com.itp.services.IaddmachineImpl"%>
 <%@page import="com.itp.services.Iaddmachine"%>
@@ -7,9 +7,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%-- 
+
 	<%ArrayList<addmechine> data = (ArrayList)request.getAttribute("data");  %>    
-   --%>   
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -470,3 +470,4 @@ $(document).ready(function(){
 </body>
 
 </html>
+  --%>
