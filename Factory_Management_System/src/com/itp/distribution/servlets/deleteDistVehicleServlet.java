@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itp.distribution.model.DistItem;
+import com.itp.distribution.model.DistVehicle;
 import com.itp.distribution.services.IDistItem;
 import com.itp.distribution.services.IDistItemImpl;
 import com.itp.distribution.services.IDistVehicle;
@@ -44,7 +45,16 @@ public class deleteDistVehicleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(request.getParameter("delete") != null) {
+		if(request.getParameter("update") != null) {
+			
+			IDistVehicle idistvehiu = new IDistVehicleImpl();
+			ArrayList<DistVehicle> idistvehi1 = idistvehiu.searchById(request.getParameter("update"));
+			request.setAttribute("data", idistvehiu.searchById(request.getParameter("update")));
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateVehicleList.jsp");
+			dispatcher.forward(request, response);
+			
+		}else if(request.getParameter("delete") != null) {
 			IDistVehicle  idistvehicle1 = new IDistVehicleImpl();
 			idistvehicle1.removeFunc(request.getParameter("delete"));
 			

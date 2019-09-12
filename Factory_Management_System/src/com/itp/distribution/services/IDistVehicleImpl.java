@@ -115,12 +115,12 @@ public class IDistVehicleImpl implements IDistVehicle{
 			while(res1.next()) {
 				DistVehicle st1 = new DistVehicle();
 				
-				st1.setVehicleNumber(res1.getString(""));
-				st1.setVehicleName(res1.getString(""));
-				st1.setArea(res1.getString(""));
-				st1.setDriverCode(res1.getString(""));
-				st1.setAssistantCode(res1.getString(""));
-				st1.setDate(res1.getDate(""));
+				st1.setVehicleNumber(res1.getString("vehicleNumber"));
+				st1.setVehicleName(res1.getString("vehicleName"));
+				st1.setArea(res1.getString("area"));
+				st1.setDriverCode(res1.getString("driverCode"));
+				st1.setAssistantCode(res1.getString("assistantCode"));
+				st1.setDate(res1.getDate("date"));
 				
 				data.add(st1);
 				
@@ -140,6 +140,37 @@ public class IDistVehicleImpl implements IDistVehicle{
 	@Override
 	public void updateDistVehicle(DistVehicle vehicleNumber) {
 		// TODO Auto-generated method stub
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+		
+		String sql = "UPDATE vehiclelist SET vehicleName =?, area=?,driverCode=?,assistantCode=?,date=? WHERE vehicleNumber='"+vehicleNumber.getVehicleNumber()+"'";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		ps.setString(1, vehicleNumber.getVehicleName());
+		ps.setString(3, vehicleNumber.getArea());
+		ps.setString(2, vehicleNumber.getDriverCode());
+		ps.setString(4, vehicleNumber.getAssistantCode());
+		ps.setDate(5, vehicleNumber.getDate());
+		int i = ps.executeUpdate();
+		System.out.println(vehicleNumber.getVehicleNumber());
+		System.out.println(vehicleNumber.getDriverCode());
+		if(i > 0) {
+			System.out.println("Record Updated Successfuly");
+		}else {
+			System.out.println("There is a problem in updating Record.");
+		}
+		ps.close();
+		conn.close();
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
 		
 	}
 

@@ -185,10 +185,10 @@
 							<td><%=distvehiclei.getAssistantCode()%></td>
 							<td><%=distvehiclei.getDate()%></td>
 							<!--  -->
-							<form method="post" action="deleteDistShopServlet">
+							<form method="post" action="deleteDistVehicleServlet">
 							<td>
 								<button class="btn btn-success" name="update"
-									value="" style="font-size: 15px;">
+									value=<%=distvehiclei.getVehicleNumber() %> style="font-size: 15px;">
 									<i class="fas fa-pen-square"></i>
 								</button>
 							</td>
