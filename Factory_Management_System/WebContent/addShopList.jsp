@@ -184,7 +184,7 @@
 					<form method="post" action="deleteDistShopServlet">
 					<td>
 						<button class="btn btn-success" name="update"
-						value="" style="font-size: 15px;">
+						value=<%=distshopi.getShopId() %> style="font-size: 15px;">
 							<i class="fas fa-pen-square"></i>
 						</button>
 					</td>

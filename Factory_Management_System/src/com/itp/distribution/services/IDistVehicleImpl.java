@@ -98,4 +98,49 @@ public class IDistVehicleImpl implements IDistVehicle{
 		
 	}
 
+	@Override
+	public ArrayList<DistVehicle> searchById(String Vno) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<DistVehicle> data = new ArrayList<DistVehicle>();
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			Statement st = conn.createStatement();
+			
+			String sql = "SELECT * FROM vehiclelist WHERE vehicleNumber='"+Vno+"'";
+			ResultSet res1 = st.executeQuery(sql);
+			
+			while(res1.next()) {
+				DistVehicle st1 = new DistVehicle();
+				
+				st1.setVehicleNumber(res1.getString(""));
+				st1.setVehicleName(res1.getString(""));
+				st1.setArea(res1.getString(""));
+				st1.setDriverCode(res1.getString(""));
+				st1.setAssistantCode(res1.getString(""));
+				st1.setDate(res1.getDate(""));
+				
+				data.add(st1);
+				
+			}
+			
+			st.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return data;
+	}
+
+	@Override
+	public void updateDistVehicle(DistVehicle vehicleNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

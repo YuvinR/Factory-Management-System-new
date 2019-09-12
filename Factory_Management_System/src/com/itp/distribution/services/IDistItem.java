@@ -12,5 +12,4 @@ public interface IDistItem {
 	public ArrayList<DistItem> searchById(String dCode);
 	public void updateDistItem(DistItem distribuItem);
 	
-
 }

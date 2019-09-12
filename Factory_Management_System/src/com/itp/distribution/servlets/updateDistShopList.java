@@ -1,7 +1,6 @@
 package com.itp.distribution.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,16 +14,16 @@ import com.itp.distribution.services.IDistShop;
 import com.itp.distribution.services.IDistShopImpl;
 
 /**
- * Servlet implementation class deleteDistShopServlet
+ * Servlet implementation class updateDistShopList
  */
-@WebServlet("/deleteDistShopServlet")
-public class deleteDistShopServlet extends HttpServlet {
+@WebServlet("/updateDistShopList")
+public class updateDistShopList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteDistShopServlet() {
+    public updateDistShopList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,22 +41,30 @@ public class deleteDistShopServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(request.getParameter("update") != null) {
+		response.setContentType("text/html");
+		
+		DistShop distshop1 = new DistShop();
+		
+
 			
-			IDistShop idistshopu = new IDistShopImpl();
-			ArrayList<DistShop> idistshoplist1 = idistshopu.searchById(request.getParameter("update"));
-			request.setAttribute("data", idistshopu.searchById(request.getParameter("update")));
+			distshop1.setShopId(request.getParameter("shopid"));
+			distshop1.setShopName(request.getParameter("shopname"));
+			distshop1.setOwnerName(request.getParameter("ownername"));
+			distshop1.setContactNo(request.getParameter("contactno"));
+			distshop1.setEmail(request.getParameter("email"));
+			distshop1.setAddress(request.getParameter("address"));
+			System.out.println("abc");
+			System.out.println(request.getParameter("shopid"));
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateShopList.jsp");
-			dispatcher.forward(request, response);
+			IDistShop idi1 = new IDistShopImpl();
+			idi1.updateDistShop(distshop1);
 			
-		}else if(request.getParameter("delete") != null) {
-			IDistShop idistshop1 = new IDistShopImpl();
-			idistshop1.removeFunc(request.getParameter("delete"));
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addShopList.jsp");
-			dispatcher.forward(request, response);
-		}
+		
+		
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addShopList.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 }

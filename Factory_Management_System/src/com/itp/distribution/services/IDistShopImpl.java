@@ -96,5 +96,78 @@ public class IDistShopImpl implements IDistShop{
 		
 	}
 
+	@Override
+	public ArrayList<DistShop> searchById(String Sid) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<DistShop> data = new ArrayList<DistShop>();
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			Statement st = conn.createStatement();
+			
+			String sql = "SELECT * FROM shoplist WHERE shopId='"+Sid+"'";
+			ResultSet res1 = st.executeQuery(sql);
+			
+			while(res1.next()) {
+				DistShop st1 = new DistShop();
+				
+				st1.setShopId(res1.getString("shopId"));
+				st1.setShopName(res1.getString("shopName"));
+				st1.setOwnerName(res1.getString("ownerName"));
+				st1.setContactNo(res1.getString("contactNo"));
+				st1.setContactNo(res1.getString("email"));
+				st1.setAddress(res1.getString("address"));
+				
+				data.add(st1);
+				
+			}
+			
+			st.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return data;
+	}
+
+	@Override
+	public void updateDistShop(DistShop shopId) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {	
+
+			String sql = "Update shoplist Set shopName =?, ownerName=?,contactNo=?,email=?,address=? WHERE shopId='"+shopId.getShopId()+"'";
+			PreparedStatement ps = conn.prepareStatement(sql);
+		
+			ps.setString(1, shopId.getShopName());
+			ps.setString(2, shopId.getOwnerName());
+			ps.setString(3, shopId.getContactNo());
+			ps.setString(4, shopId.getEmail());
+			ps.setString(5, shopId.getAddress());
+			int i = ps.executeUpdate();
+			System.out.println(shopId.getShopId());
+			System.out.println(shopId.getOwnerName());
+			if(i>0) {
+				System.out.println("Record Updated Successfully");
+			}else {
+				System.out.println("There is a problem in updating Record.");
+			}
+			
+			ps.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 
 }
