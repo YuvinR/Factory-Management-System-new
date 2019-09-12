@@ -1,6 +1,7 @@
 package com.itp.salary.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itp.inv.model.product;
 import com.itp.inv.services.implProduct;
 import com.itp.inv.services.productfunction;
+import com.itp.salary.model.Setting;
 import com.itp.salary.services.IPay_Set;
 import com.itp.salary.services.IPay_SetImpl;
 
@@ -50,6 +53,20 @@ public class SalTableOpt extends HttpServlet {
 	    	
 	    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/SalSetting.jsp");
 	 		dispatcher.forward(request, response);
+		}
+		if (request.getParameter("update") != null) {
+			IPay_Set opay = new IPay_SetImpl();
+				ArrayList<Setting> prlist1 = opay.getbyid(request.getParameter("update"));
+					 request.setAttribute("data",opay.getbyid(request.getParameter("update")));
+					
+					 
+					
+					 
+					 
+				
+					 
+					 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateSal.jsp");
+				 		dispatcher.forward(request, response);
 		}
 	}
 

@@ -154,15 +154,7 @@ ArrayList<product> data = new ArrayList<product>();
 		// TODO Auto-generated method stub
 		Connection conn = DBConnection.getConnection();
 		try {
-			/*PreparedStatement prst = conn.prepareStatement("UPDATE product\r\n" + 
-					"SET pname = '"+prd.getPid()+"', storeid='"+prd.getPstore()+"',date='"+prd.getDate()+"',price='"+prd.getPrice()+"' \r\n" + 
-					"WHERE pid='"+prd.getPid()+"'");
-			
-prst.executeUpdate();
-			
-			prst.close();
-			conn.close();*/
-			
+				
 			
 			
 			String sql="UPDATE product SET pname =?, storeid=?,date=?,price=? WHERE pid='"+prd.getPid()+"'";

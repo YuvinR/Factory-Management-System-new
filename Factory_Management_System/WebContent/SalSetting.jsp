@@ -179,7 +179,7 @@
                         <td><%= setting1.getPayment_Type() %></td>
 						<td><%=setting1.getValue() %></td>
 						 <form method="post" action="SalTableOpt" >
-						  <td><button class="btn btn-success" name="update"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+						  <td><button class="btn btn-success" name="update"  value=<%= setting1.getPayment_Type() %> ><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
                         <td><button class="btn btn-danger" name="delete" value=<%= setting1.getPayment_Type() %> style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                    </form>
                     </tr>
@@ -222,12 +222,12 @@
                               Value
                           </div>
                       </div>
-                  
-  </form>
-                    </div>
-                    <div class="modal-footer">
+                   <div class="modal-footer">
                       <button class="btn btn-primary btn-block" type="submit"> Submit</button>
                     </div>
+  </form>
+                    </div>
+                   
                   </div>
                 </div>
               </div>
