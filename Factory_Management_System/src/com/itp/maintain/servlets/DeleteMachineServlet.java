@@ -1,0 +1,60 @@
+package com.itp.maintain.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.itp.emp.services.EmployeeServiceImpl;
+import com.itp.emp.services.IEmployeeServices;
+import com.itp.login.services.ILoginServices;
+import com.itp.maintain.services.IaddmachineImpl;
+import com.itp.login.services.LoginServicesImpl;
+
+/**
+ * Servlet implementation class DeleteMachineServlet
+ */
+@WebServlet("/DeleteMachineServlet")
+public class DeleteMachineServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DeleteMachineServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		
+		
+		String machineid = request.getParameter("deleteText");
+		System.out.println(machineid);
+		IaddmachineImpl iaddmachineImpl = new IaddmachineImpl();
+		iaddmachineImpl.removeMachine(machineid);
+		
+		
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/viewmachines.jsp");
+		dispatcher.forward(request, response);
+	}
+
+}

@@ -10,21 +10,7 @@ public class DBConnection extends CommonUtilities{
 	
 
 	private static Connection connection;
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/factory_management_system","root","cubieboard");
-//			return conn;
-//			
-//		}catch(ClassNotFoundException e) {
-//			e.printStackTrace();
-//			return null;
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//			return null;
-//			
-//		}
-//				
-//	}
+
 	
 	public static Connection getDBConnection() throws ClassNotFoundException, SQLException {
 		

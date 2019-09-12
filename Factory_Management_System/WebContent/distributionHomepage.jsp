@@ -43,7 +43,7 @@
 
 			<nav
 				class="navbar navbar-expand-md navbar-light  shadow-sm bg-white rounded row nav-margin">
-				<a class="navbar-brand logo" href="#"> Bakthi Herbal Lanka </a>
+				<a class="navbar-brand logo" href="index.jsp"> Bakthi Herbal Lanka </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"
 					aria-expanded="false" aria-label="Toggle navigation">

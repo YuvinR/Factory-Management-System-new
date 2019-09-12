@@ -26,7 +26,7 @@
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light  shadow-sm bg-white row nav-margin">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="index.jsp">
                 Bakthi Herbal Lanka
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
