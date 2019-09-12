@@ -1,6 +1,8 @@
 package com.itp.salary.servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,22 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itp.inv.model.product;
+import com.itp.inv.services.implProduct;
+import com.itp.inv.services.productfunction;
+import com.itp.salary.model.Setting;
 import com.itp.salary.services.IPay_Set;
 import com.itp.salary.services.IPay_SetImpl;
 
-import com.itp.salary.model.Setting;
-
 /**
- * Servlet implementation class PaySetList
+ * Servlet implementation class updateform
  */
-@WebServlet("/PaySetList")
-public class PaySetList extends HttpServlet {
+@WebServlet("/updateform")
+public class updateform extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PaySetList() {
+    public updateform() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,23 +45,33 @@ public class PaySetList extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		Setting setting=new Setting();
-		setting.setPayment_Type(request.getParameter("Payment_Type"));
-		setting.setValue(Integer.parseInt(request.getParameter("value")));
+		// TODO Auto-generated method stub
+response.setContentType("text/html");
 		
-		IPay_Set iPay_Set=new IPay_SetImpl();
-		iPay_Set.setSetting(setting);
+		Setting prd = new Setting();
+		try {
+			
+			
+		
+		prd.setPayment_Type(request.getParameter("Payment_Type"));
+		prd.setValue(Integer.parseInt(request.getParameter("value")));
 		
 		
-		IPay_Set iPay_Set2=new IPay_SetImpl();
-		request.setAttribute("data", iPay_Set2);
+		IPay_Set prdct = new IPay_SetImpl();
+		prdct.updatesal(prd);
 		
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/SalSetting.jsp");
-		if(dispatcher != null) {dispatcher.forward(request, response);
-		}
+		dispatcher.forward(request, response);
+		
+		
+	}
 	}
 
-}
+
