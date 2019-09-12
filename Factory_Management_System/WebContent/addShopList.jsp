@@ -181,12 +181,21 @@
 					<td> <%= distshopi.getEmail() %> </td>
 					<td> <%= distshopi.getAddress() %> </td>
 					<!--  -->
-					<td><button class="btn btn-success">
-							<i class="fas fa-pen-square" style="font-size: 15px;"></i>
-						</button></td>
-					<td><button class="btn btn-danger"style="margin-left: 10px;">
-							<i class="far fa-trash-alt"></i>
-						</button></td>
+					<form method="post" action="deleteDistShopServlet">
+					<td>
+						<button class="btn btn-success" name="update"
+						value=<%=distshopi.getShopId() %> style="font-size: 15px;">
+							<i class="fas fa-pen-square"></i>
+						</button>
+					</td>
+					<td>
+					<button class="btn btn-danger" name="delete"
+						value=<%=distshopi.getShopId() %>
+						style="margin-left: 10px;">
+						<i class="far fa-trash-alt"></i>
+						</button>
+					</td>
+					</form>
 					<!--  -->
 					</tr>
 					<%} %>
@@ -259,12 +268,12 @@
 								placeholder="Please enter an Address" name="address" required>
 							<div class="invalid-feedback">Please provide an Address.</div>
 						</div>
+			
+						<div class="modal-footer">
+							<button class="btn btn-primary btn-block" type="submit">Add</button>
+						</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button class="btn btn-primary btn-block" type="submit">
-						Add</button>
-				</div>
-				</form>
 			</div>
 		</div>
 	</div>

@@ -11,6 +11,6 @@ public interface productfunction {
 	public ArrayList<product>getproduct();
 	public void removeProduct(String pid);
 	public ArrayList<product>searchById(String pid);
-	public void updateproduct(product prd);
+	public void updateproduct(product prdx);
 	
 }
