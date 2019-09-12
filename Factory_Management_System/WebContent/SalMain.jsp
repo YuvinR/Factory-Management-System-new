@@ -4,14 +4,14 @@
 <html>
 <head>
 
-<title>Supplier Index</title>
+<title>Salary Home</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
-    <title>Supplier Index Page</title>
+    <title>Salary Home  Page</title>
     <link rel="stylesheet" href="./css/indexStyleSheet.css">
     <!--***nav bar css*** -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -81,80 +81,76 @@
   <!--****End of header*** -->
    <br><br><br><br><br>
 
-	
-  <div class="container">
-  
-   <div class="col-5 mx-auto title pb-5">
-         <h2>Supplier Management</h2>
-   </div>
-  
-   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3">
-     <div class="inventryopt">
-      <div class="pic">
+	 <div class="container">
+     <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-3">
+       <div class="inventryopt">
+        <div class="pic">
+           
+           <i class="fas fa-marker  fa-3x"></i>
+			
+            </div>
+           <div class="card-content">
+           <h3  class="title">Attendance</h3>
+               <span class="post">daily attendance</span>
+               
+           </div>
+           <div class="bt"> <a href=Attendance.jsp> <button class="btn btn-primary" type="submit">Attendance Marking</button></a></div>
+            </div>
+        </div>
+         
+               <div class="col-sm-12 col-md-6 col-lg-3">
+       <div class="inventryopt">
+        <div class="pic">
+            <i class="fas fa-search-dollar fa-3x"></i>
+            </div>
+           <div class="card-content">
+           <h3  class="title">Daily Salary</h3>
+               <span class="post">daily payment calculation</span>
+               
+           </div>
+           <div class="bt">  <a href=DailySal.jsp><button class="btn btn-primary" type="submit">Calculate Salary</button></a></div>
+            </div>
+        </div>
+         
+               <div class="col-sm-12 col-md-6 col-lg-3">
+       <div class="inventryopt">
+        <div class="pic">
+            
+                       <i class="fas fa-calculator fa-3x"></i>
 
-         <i class="fas fa-user-plus fa-3x"></i>
-          </div>
-         <div class="card-content">
-         <h3  class="title">Add Suppliers</h3>
-             <span class="post"> add new suppliers</span>
-
-         </div>
-         <div class="bt"><a href="supplierList.jsp"><button class="btn btn-primary" type="submit">Add Supplier</button></a></div>
-          </div>
-      </div>
-
-             <div class="col-sm-12 col-md-6 col-lg-3">
-     <div class="inventryopt">
-      <div class="pic">
-          <i class="far fa-registered fa-3x"></i>
-          </div>
-         <div class="card-content">
-         <h3  class="title">Add Raw Materials</h3>
-             <span class="post">add new raw-materials</span>
-
-         </div>
-         <div class="bt"><a href="rawMaterialList.jsp"><button class="btn btn-primary" type="submit">Add Raw Material</button></a></div>
-          </div>
-      </div>
-
-             <div class="col-sm-12 col-md-6 col-lg-3">
-     <div class="inventryopt">
-      <div class="pic">
-
-         <i class="fas fa-dollar-sign fa-3x"></i>
-          </div>
-         <div class="card-content">
-         <h3  class="title">Add Payments</h3>
-             <span class="post">Add supplier payments</span>
-
-         </div>
-         <div class="bt"> <button class="btn btn-primary" type="submit">Add Payments</button></div>
-          </div>
-      </div>
-
-    <div class="col-sm-12 col-md-6 col-lg-3">
-     <div class="inventryopt">
-      <div class="pic">
-
-         <i class="fas fa-chart-line fa-3x"></i>
-          </div>
-         <div class="card-content">
-         <h3  class="title">Generate Reports</h3>
-             <span class="post">View & generate reports</span>
-
-         </div>
-         <div class="bt">  <button class="btn btn-primary" type="submit">Generate Reports</button></div>
-          </div>
-      </div>
-
-      </div>
-
-
-
-  </div>
-
-
+            </div>
+           <div class="card-content">
+           <h3  class="title">Monthly Salary</h3>
+               <span class="post">monthly salary calculation</span>
+               
+           </div>
+          
+           <div class="bt">
+            <a href=MonthSal.jsp>
+             <button class="btn btn-primary" type="submit">Calculate Salary</button>
+           </a></div>
+            </div>
+        </div>
+         
+               <div class="col-sm-12 col-md-6 col-lg-3">
+       <div class="inventryopt">
+        <div class="pic">
+            
+           <i class="fas fa-wrench fa-3x"></i>
+            </div>
+           <div class="card-content">
+           <h3  class="title">Salary Update</h3>
+               <span class="post">Salary Details</span>
+               
+           </div>
+           <div class="bt"> <a href=SalSetting.jsp><button class="btn btn-primary" type="submit">Update Salary</button></a></div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    
 
 
 </body>
