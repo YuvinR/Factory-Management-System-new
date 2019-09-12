@@ -1,4 +1,4 @@
-package com.itp.salary.servlets;
+package com.itp.distribution.servlets;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itp.salary.services.IinsertunitsImpl;
-import com.itp.salary.services.Iinsetunits;
-
-import com.itp.salary.model.UnitInsert;
+import com.itp.distribution.model.DistVehicle;
+import com.itp.distribution.services.IDistVehicle;
+import com.itp.distribution.services.IDistVehicleImpl;
 
 /**
- * Servlet implementation class DayilyUnitsList
+ * Servlet implementation class updateDistVehicleServlet
  */
-@WebServlet("/DayilyUnitsList")
-public class DayilyUnitsList extends HttpServlet {
+@WebServlet("/updateDistVehicleList")
+public class updateDistVehicleList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DayilyUnitsList() {
+    public updateDistVehicleList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,26 +42,39 @@ public class DayilyUnitsList extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.setContentType("text/html");
-		UnitInsert unitinsert = new UnitInsert();
+		
+		DistVehicle distvehicle1 = new DistVehicle();
 		
 		java.util.Date date;
+		
 		try {
 			date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-			java.sql.Date sqlDate=new java.sql.Date(date.getTime());
-			unitinsert.setEmp_Id(request.getParameter("Emp_Id"));
-			unitinsert.setNumUnits(Integer.parseInt(request.getParameter("NumUnits")));
-			unitinsert.setDate(sqlDate);
+			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+			
+			distvehicle1.setVehicleNumber(request.getParameter("vehiclenumber"));
+			distvehicle1.setVehicleName(request.getParameter("vehiclename"));
+			distvehicle1.setArea(request.getParameter("area"));
+			distvehicle1.setDriverCode(request.getParameter("driverid"));
+			distvehicle1.setAssistantCode(request.getParameter("assistantid"));
+			distvehicle1.setDate(sqlDate);
+			
+			System.out.println("pqr");
+			System.out.println(request.getParameter("vehiclenumber"));
+			
+			IDistVehicle idi1 = new IDistVehicleImpl();
+			idi1.updateDistVehicle(distvehicle1);
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		 Iinsetunits insertu=new IinsertunitsImpl();
-		 insertu.insertUnits(unitinsert);
-		 RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/DailySal.jsp");
-		 dispatcher.forward(request, response);
-		 
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addVehicleList.jsp");
+		dispatcher.forward(request, response);
+
+		
 	}
 
 }

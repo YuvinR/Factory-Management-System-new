@@ -12,7 +12,7 @@
     
     <div class="col-md-5 mb-5">
       <label for="validationCustom02">Product code</label>
-      <input type="text" class="form-control" id="validationCustom02" placeholder="P0001" value="" required>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="P001" value="" required>
       <div class="valid-feedback">
         Looks good!
       </div>

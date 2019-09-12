@@ -8,5 +8,8 @@ public interface IDistShop {
 	
 	public void addShop(DistShop shopId);
 	public ArrayList<DistShop>viewDistShops();
+	public void removeFunc(String Sid);
+	public ArrayList<DistShop> searchById(String Sid);
+	public void updateDistShop(DistShop shopId);
 
 }

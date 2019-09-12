@@ -20,7 +20,7 @@ public class IinsertunitsImpl implements Iinsetunits {
 			pStatement = conn.prepareStatement("INSERT INTO dailyunits values(?,?,?)");
 			pStatement.setString(1, unitinsert.getEmp_Id());
 			pStatement.setInt(2, unitinsert.getNumUnits());
-			pStatement.setString(3, unitinsert.getDate());
+			pStatement.setDate(3, unitinsert.getDate());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (SQLException e) {

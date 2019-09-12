@@ -27,7 +27,7 @@
 
      	<%for(int rec=0;rec<data.size();rec++) { %>
 
-<% product pr = (product)data.get(rec);System.out.println(pr.getPname()); %>
+<% product pr = (product)data.get(rec);  %>
 
  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     			<div class="modal-content">
