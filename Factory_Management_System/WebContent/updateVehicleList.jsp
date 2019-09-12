@@ -1,4 +1,3 @@
-
 <!--  -->
 <%@page import="com.itp.distribution.services.*"%>
 <%@page import="com.itp.distribution.model.*"%>
@@ -27,7 +26,7 @@
 <script src="https://kit.fontawesome.com/a65579f16a.js"></script>
 
 <%
-	ArrayList<IDistItem> data = (ArrayList) request.getAttribute("data");
+	ArrayList<IDistVehicle> data = (ArrayList) request.getAttribute("data");
 %>
 
 <title>Insert title here</title>
@@ -39,8 +38,8 @@
 	%>
 
 	<%
-		DistItem idi = (DistItem) data.get(rec);
-			System.out.println(idi.getDistributedCode());
+		DistVehicle idi = (DistVehicle) data.get(rec);
+			System.out.println(idi.getVehicleNumber());
 	%>
 
 	<div class="modal-dialog modal-dialog-centered modal-lg"
@@ -54,62 +53,61 @@
 			<div class="modal-body">
 
 				<form id="log" class="needs-validation" novalidate method="post"
-					action="updateDistItemList">
+					action="updateDistVehicleList">
 
 					<div class="form-group">
-						<label for="validation1">Distributed Code</label> <input
-							type="text" class="form-control" id="validation1"
-							name="distributioncode" value=<%=idi.getDistributedCode()%>
-							required>
-						<div class="invalid-feedback">Please provide a Distributed
-							Code.</div>
+
+						<label for="validation1">Vehicle Number</label> <input type="text"
+							class="form-control" id="validation1"
+							value=<%=idi.getVehicleNumber()%> name="vehiclenumber" required>
+						<div class="invalid-feedback">Please provide a Vehicle
+							Number.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="validation2">Item Code</label> <input type="text"
-							class="form-control" id="validation2" name="itemcode"
-							value=<%=idi.getItemCode()%> required>
-						<div class="invalid-feedback">Please provide a Item Code.</div>
+						<label for="validation2">Vehicle Name</label> <input type="text"
+							class="form-control" id="validation2"
+							value=<%=idi.getVehicleName()%> name="vehiclename" required>
+						<div class="invalid-feedback">Please provide a Vehicle Name.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="validation3">Shop Id</label> <input type="text"
-							class="form-control" id="validation3" name="shopid"
-							value=<%=idi.getShopId()%> required>
-						<div class="invalid-feedback">Please provide a Shop Id.</div>
+						<label for="validation2">Area</label> <input type="text"
+							class="form-control" id="validation3" value=<%=idi.getArea()%>
+							name="area" required>
+						<div class="invalid-feedback">Please provide the Delivering
+							area.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="validation4">Distributed Count</label> <input
-							type="number" class="form-control" id="validation4"
-							name="distributioncount" value=<%=idi.getDistributedCount()%>
-							required>
-						<div class="invalid-feedback">Please provide a Distributed
-							Count.</div>
-					</div>
-					<div class="form-group">
-						<label for="validation5">Return Count</label> <input type="number"
-							class="form-control" id="validation5" name="returncount"
-							value=<%=idi.getReturnedCount()%> required>
-						<div class="invalid-feedback">Please provide a Return Count.</div>
+						<label for="validation3">Driver Id</label> <input type="text"
+							class="form-control" id="validation4"
+							value=<%=idi.getDriverCode()%> name="driverid" required>
+						<div class="invalid-feedback">Please provide a Driver Id.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="validation6">Income</label> <input type="number"
-							class="form-control" id="validation6" name="income"
-							value=<%=idi.getIncome()%> required>
-						<div class="invalid-feedback">Please provide the Income.</div>
+						<label for="validation4">Assistant Id</label> <input type="text"
+							class="form-control" id="validation5"
+							value=<%=idi.getAssistantCode()%> name="assistantid" required>
+						<div class="invalid-feedback">Please provide an Assistant
+							Id.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="validation6">Date</label> <input type="date"
-							class="form-control" id="validation7" name="date"
-							value=<%=idi.getDate()%> required>
+						<label for="validation4">Date</label> <input type="date"
+							class="form-control" id="validation5" value=<%=idi.getDate()%>
+							name="date" required>
 						<div class="invalid-feedback">Please provide a Date.</div>
 					</div>
 
 					<div class="modal-footer">
 						<button class="btn btn-primary btn-block" type="submit">Update</button>
+						<a href="addVehicleList.jsp">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Back</button>
+						</a>
+
 					</div>
 				</form>
 
@@ -124,5 +122,4 @@
 
 
 </body>
-
 </html>

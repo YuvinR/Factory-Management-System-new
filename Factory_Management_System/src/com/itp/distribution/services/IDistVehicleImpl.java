@@ -77,7 +77,7 @@ public class IDistVehicleImpl implements IDistVehicle{
 		return datarate;
 	}
 
-	
+
 	public void removeFunc(String Vno) {
 		// TODO Auto-generated method stub
 		Connection conn = DBConnection.getConnection();
@@ -98,7 +98,7 @@ public class IDistVehicleImpl implements IDistVehicle{
 		
 	}
 
-	
+
 	public ArrayList<DistVehicle> searchById(String Vno) {
 		// TODO Auto-generated method stub
 		
@@ -137,7 +137,7 @@ public class IDistVehicleImpl implements IDistVehicle{
 		return data;
 	}
 
-	
+
 	public void updateDistVehicle(DistVehicle vehicleNumber) {
 		// TODO Auto-generated method stub
 		
