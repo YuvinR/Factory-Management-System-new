@@ -1,6 +1,9 @@
 package com.itp.salary.servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,10 +46,29 @@ public class AttendanceList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		Attendance attendance=new Attendance();
-		attendance.setEmp_Id(request.getParameter("Emp_Id"));
-		attendance.setDate(request.getParameter("date"));
-		attendance.setArrival_time(request.getParameter("Arrival_time"));
-		attendance.setDeparture_time(request.getParameter("Departure_time"));
+		
+		
+		try {
+			java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			java.sql.Date sqlDate=new java.sql.Date(date.getTime());
+			
+			Date time1 = new SimpleDateFormat("HH:mm").parse(request.getParameter("Arrival_time"));
+			java.sql.Time sqltime1=new java.sql.Time(time1.getTime());
+			
+			Date time2=new SimpleDateFormat("HH:mm").parse(request.getParameter("Departure_time"));
+			java.sql.Time sqltime2=new java.sql.Time(time2.getTime());
+			
+		//	java.sql.time sqltime2=new java.sql.Time(time.get)
+			
+			attendance.setEmp_Id(request.getParameter("Emp_Id"));
+			attendance.setDate(sqlDate);
+			attendance.setArrival_time(sqltime1);
+			attendance.setDeparture_time(sqltime2);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		IAttendance iAttendance=new IAttendanceImpl();
 		iAttendance.addAttendance(attendance);

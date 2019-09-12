@@ -1,4 +1,4 @@
-<%--  <%@page import="com.itp.services.Iaddequipmentimpi"%>
+<%-- <%@page import="com.itp.services.Iaddequipmentimpi"%>
 <%@page import="com.itp.util.CommonUtilities"%>
 <%@page import="com.itp.services.IaddmachineImpl"%>
 <%@page import="com.itp.services.Iaddmachine"%>
@@ -470,4 +470,4 @@ $(document).ready(function(){
 </body>
 
 </html>
-  --%>
+ --%>

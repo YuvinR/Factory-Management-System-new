@@ -1,9 +1,11 @@
 package com.itp.salary.model;
 
+import java.sql.Date;
+
 public class UnitInsert {
 	private String Emp_Id;
 	private Integer NumUnits;
-	private String date;
+	private Date date;
 	public String getEmp_Id() {
 		return Emp_Id;
 	}
@@ -16,10 +18,10 @@ public class UnitInsert {
 	public void setNumUnits(Integer numUnits) {
 		NumUnits = numUnits;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	

@@ -1,33 +1,36 @@
 package com.itp.salary.model;
 
+import java.sql.Date;
+import java.sql.Time;
 
 public class Attendance {
 	private String Emp_Id;
-	private String date;
-	private String Arrival_time;
-	private String Departure_time;
+	private Date date;
+	private Time Arrival_time;
+	private Time Departure_time;
+	
 	public String getEmp_Id() {
 		return Emp_Id;
 	}
 	public void setEmp_Id(String emp_Id) {
 		Emp_Id = emp_Id;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getArrival_time() {
+	public Time getArrival_time() {
 		return Arrival_time;
 	}
-	public void setArrival_time(String arrival_time) {
+	public void setArrival_time(Time arrival_time) {
 		Arrival_time = arrival_time;
 	}
-	public String getDeparture_time() {
+	public Time getDeparture_time() {
 		return Departure_time;
 	}
-	public void setDeparture_time(String departure_time) {
+	public void setDeparture_time(Time departure_time) {
 		Departure_time = departure_time;
 	}
 	

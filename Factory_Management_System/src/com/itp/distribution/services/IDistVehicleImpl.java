@@ -77,4 +77,101 @@ public class IDistVehicleImpl implements IDistVehicle{
 		return datarate;
 	}
 
+	
+	public void removeFunc(String Vno) {
+		// TODO Auto-generated method stub
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement("DELETE FROM vehiclelist WHERE vehicleNumber='"+Vno+"'");
+			
+			stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	
+	public ArrayList<DistVehicle> searchById(String Vno) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<DistVehicle> data = new ArrayList<DistVehicle>();
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			Statement st = conn.createStatement();
+			
+			String sql = "SELECT * FROM vehiclelist WHERE vehicleNumber='"+Vno+"'";
+			ResultSet res1 = st.executeQuery(sql);
+			
+			while(res1.next()) {
+				DistVehicle st1 = new DistVehicle();
+				
+				st1.setVehicleNumber(res1.getString("vehicleNumber"));
+				st1.setVehicleName(res1.getString("vehicleName"));
+				st1.setArea(res1.getString("area"));
+				st1.setDriverCode(res1.getString("driverCode"));
+				st1.setAssistantCode(res1.getString("assistantCode"));
+				st1.setDate(res1.getDate("date"));
+				
+				data.add(st1);
+				
+			}
+			
+			st.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return data;
+	}
+
+	
+	public void updateDistVehicle(DistVehicle vehicleNumber) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+		
+		String sql = "UPDATE vehiclelist SET vehicleName =?, area=?,driverCode=?,assistantCode=?,date=? WHERE vehicleNumber='"+vehicleNumber.getVehicleNumber()+"'";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		ps.setString(1, vehicleNumber.getVehicleName());
+		ps.setString(3, vehicleNumber.getArea());
+		ps.setString(2, vehicleNumber.getDriverCode());
+		ps.setString(4, vehicleNumber.getAssistantCode());
+		ps.setDate(5, vehicleNumber.getDate());
+		int i = ps.executeUpdate();
+		System.out.println(vehicleNumber.getVehicleNumber());
+		System.out.println(vehicleNumber.getDriverCode());
+		if(i > 0) {
+			System.out.println("Record Updated Successfuly");
+		}else {
+			System.out.println("There is a problem in updating Record.");
+		}
+		ps.close();
+		conn.close();
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
+		
+	}
+
 }
