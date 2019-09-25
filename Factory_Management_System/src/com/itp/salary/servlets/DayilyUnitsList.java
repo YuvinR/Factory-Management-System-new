@@ -1,6 +1,8 @@
 package com.itp.salary.servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,9 +45,19 @@ public class DayilyUnitsList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		UnitInsert unitinsert = new UnitInsert();
-		unitinsert.setEmp_Id(request.getParameter("Emp_Id"));
-		unitinsert.setNumUnits(Integer.parseInt(request.getParameter("NumUnits")));
-		unitinsert.setDate(request.getParameter("date"));
+		
+		java.util.Date date;
+		try {
+			date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			java.sql.Date sqlDate=new java.sql.Date(date.getTime());
+			unitinsert.setEmp_Id(request.getParameter("Emp_Id"));
+			unitinsert.setNumUnits(Integer.parseInt(request.getParameter("NumUnits")));
+			unitinsert.setDate(sqlDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		 Iinsetunits insertu=new IinsertunitsImpl();
 		 insertu.insertUnits(unitinsert);
 		 RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/DailySal.jsp");

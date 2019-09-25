@@ -1,7 +1,7 @@
 body {
     font-family: "Roboto";
     font-size: 1.0rem;
-    background:url(./background.png);
+    background:url('../images/background.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

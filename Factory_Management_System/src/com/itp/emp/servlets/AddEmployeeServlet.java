@@ -110,7 +110,7 @@ public class AddEmployeeServlet extends HttpServlet {
 				try {
 					System.out.println("asasd");
 
-					String name = "D:\\Github\\ITP_Project\\Factory-Management-System\\Project_Front-End\\Bakthi-Herbal-Lanka\\WebContent\\images\\imagefiles"
+					String name = "D:\\ITP-Project\\Factory-Management-System-new\\Factory_Management_System\\WebContent\\images\\imagefiles"
 							+ "\\" + item.getName();
 					item.write(new File(name));
 					e.setImg(item.getName());
@@ -161,13 +161,33 @@ public class AddEmployeeServlet extends HttpServlet {
 		ILoginServices iLoginServices = new LoginServicesImpl();
 		iLoginServices.addLogin(l);
 
-		String compose = "Hello, " + efname + " " + elname + "\n " + "EID: \t" + eeid + "\nUsername: \t" + eusername
+		String compose = "Hello, " + efname + " " + elname + "\n" + "EID: \t" + eeid + "\nUsername: \t" + eusername
 				+ "\nPassword: \t" + epassword;
 
+		String caption = eemail;
 		
-		  SendMail mail = new SendMail(); 
-		  mail.send("itpprojectmlb05@gmail.com", "itpmlb05", eemail , "Welcome!!!",compose);
+		 Thread sendmail = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				 SendMail mail = new SendMail(); 
+				  mail.send("itpprojectmlb05@gmail.com", "itpmlb05",caption , "Welcome!!!",compose);
+				 
+			}
+		});
 		 
+		sendmail.start();
+		
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>");
+		out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+		out.println("<script>");
+		out.println("$(document).ready(function(){");
+		out.println("swal('Registration Successfull!', 'Employee added to the System!', 'success');");
+		out.println("});");
+		out.println("</script>");
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/EmployeeList.jsp");
 		dispatcher.forward(request, response);
 

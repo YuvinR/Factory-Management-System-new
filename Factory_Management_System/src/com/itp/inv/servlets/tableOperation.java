@@ -55,13 +55,6 @@ public class tableOperation extends HttpServlet {
 			 request.setAttribute("data",prd1.searchById(request.getParameter("update")));
 			 
 			 
-			 for(int rec=0;rec<prlist1.size();rec++) {
-				 product pr = (product)prlist1.get(rec);
-				 System.out.println(pr.getPid());
-				 System.out.println(pr.getPname());
-				 
-			 }
-			 
 			 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateform.jsp");
 		 		dispatcher.forward(request, response);
 			
@@ -80,5 +73,7 @@ public class tableOperation extends HttpServlet {
 	    }
 		
 	}
+	
+	
 
 }

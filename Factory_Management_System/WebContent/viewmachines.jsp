@@ -1,15 +1,23 @@
-<%@page import="com.itp.services.Iaddequipmentimpi"%>
+<<<<<<< HEAD
+
+<%@page import="com.itp.common.utils.CommonUtilities"%>
+<%@page import="com.itp.maintain.services.IaddmachineImpl"%>
+<%@page import="com.itp.maintain.services.Iaddmachine"%>
+<%@page import="com.itp.maintain.model.addmechine"%>
+=======
+<%-- <%@page import="com.itp.services.Iaddequipmentimpi"%>
 <%@page import="com.itp.util.CommonUtilities"%>
 <%@page import="com.itp.services.IaddmachineImpl"%>
 <%@page import="com.itp.services.Iaddmachine"%>
 <%@page import="com.itp.model.addmechine"%>
+>>>>>>> 560aa5323ebc1bb38c25adcb4c3acc49a895dc58
 <%@page import="java.util.*" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%-- 
+
 	<%ArrayList<addmechine> data = (ArrayList)request.getAttribute("data");  %>    
-   --%>   
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +63,7 @@
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="index.jsp">
                 Bakthi Herbal Lanka
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -470,3 +478,4 @@ $(document).ready(function(){
 </body>
 
 </html>
+ --%>

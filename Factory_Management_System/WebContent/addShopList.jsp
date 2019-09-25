@@ -1,34 +1,49 @@
+<%@page import="com.itp.distribution.services.IDistShopImpl"%>
+<%@page import="com.itp.distribution.services.IDistShop"%>
+<%@page import="com.itp.distribution.model.DistShop"%>
+<%@page import="java.util.*" %>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+	
+
+	<%ArrayList<DistShop> data = (ArrayList)request.getAttribute("data"); %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900"
+	rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	crossorigin="anonymous">
 
-    <!-- Bootstrap CDN and external CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="./css/dashBoardStyleSheet.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/table.css">
+<!-- Bootstrap CDN and external CSS -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="./css/dashBoardStyleSheet.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/table.css">
 
 
-    <title>Shop List</title>
+<title>Shop List</title>
 </head>
 
 <body>
 
+
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="index.jsp">
                 Bakthi Herbal Lanka
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -307,6 +322,11 @@
                   $('.dataTables_length').addClass('bs-select');
                 });
             </script>
+
+	
+
+	
+
 </body>
 
 </html>

@@ -35,7 +35,7 @@
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="index.jsp">
                 Bakthi Herbal Lanka
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,17 +129,17 @@
       <h4 style="text-align: left;">Payment Setting Table</h4>
     </div>
 
-    <div class="col-md-auto">
+   <div class="col-md-auto">
 
       <div class="input-group md-form form-sm form-2 pl-0">
         <input class="form-control my-0 py-1 purple-border" type="text" placeholder="Search" aria-label="Search" style="width:300px;">
         <div class="input-group-append">
-          <a><button class="btn btn-search input-group-text purple lighten-1" id="basic-text1" style="background:#4628B8;"><i class="fas fa-search text-white"
-              aria-hidden="true" ></i></span>
-        </div></a>
+          <button class="btn btn-search input-group-text purple lighten-1" id="basic-text1" style="background:#4628B8;"><i class="fas fa-search text-white"
+              aria-hidden="true" ></i></button>
+        </div>
       </div>
 
-    </div>
+    </div> 
 
     <div class="col col-lg-2">
       
@@ -174,11 +174,14 @@
                 	ArrayList<Setting> setlist=ps1.viewsetiing();
                 	for(Setting setting1 : setlist){
                 %>
+               
                     <tr>
                         <td><%= setting1.getPayment_Type() %></td>
 						<td><%=setting1.getValue() %></td>
-						 <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+						 <form method="post" action="SalTableOpt" >
+						  <td><button class="btn btn-success" name="update"  value=<%= setting1.getPayment_Type() %> ><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" name="delete" value=<%= setting1.getPayment_Type() %> style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                   </form>
                     </tr>
 					<%} %>
 					 
@@ -219,16 +222,16 @@
                               Value
                           </div>
                       </div>
-                  
-  
-                    </div>
-                    <div class="modal-footer">
+                   <div class="modal-footer">
                       <button class="btn btn-primary btn-block" type="submit"> Submit</button>
                     </div>
+  </form>
+                    </div>
+                   
                   </div>
                 </div>
               </div>
-  			</form>
+  			
           <!-- end of action button-->
   
 

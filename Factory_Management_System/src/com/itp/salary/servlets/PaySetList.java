@@ -49,8 +49,11 @@ public class PaySetList extends HttpServlet {
 		IPay_Set iPay_Set=new IPay_SetImpl();
 		iPay_Set.setSetting(setting);
 		
+		
 		IPay_Set iPay_Set2=new IPay_SetImpl();
 		request.setAttribute("data", iPay_Set2);
+		
+		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/SalSetting.jsp");
 		if(dispatcher != null) {dispatcher.forward(request, response);

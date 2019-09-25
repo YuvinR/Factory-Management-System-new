@@ -1,6 +1,6 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.9rem;
+/*    font-family: "Montserrat", sans-serif;
+ */    font-size: 0.9rem;
 }
 
 .toggle-bar {
@@ -9,6 +9,7 @@ body {
 
 .sidebar-hr {
     border-top: 2px solid rgba(255, 255, 255, 0.15);
+   
 }
 
 #sidebarToggle::after {

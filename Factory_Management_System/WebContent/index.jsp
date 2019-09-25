@@ -26,7 +26,7 @@
         <div class="container-fluid navbar-position">
 
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-white row">
-                <a class="navbar-brand logo" href="Home.html">
+                <a class="navbar-brand logo" href="index.jsp">
                     Bakthi Herbal Lanka
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -112,7 +112,7 @@
                 </div>
             </nav>
         </div>
-        <h2 class="text-center section-title pt-1">Welcome..!</h2>
+        <h2 class="text-center section-title pt-1" style="color: white;">Welcome..!</h2>
         <div class="container-fluid">
             
 
@@ -147,7 +147,7 @@
                     <p class="info-width mx-auto">Salary Management</p>
                 </a>
 
-                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards">
+                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards" href="financialhomepage.jsp">
                     <img src="./images/investment.png" class="image">
                     <h3 class="overview-header">Financial Management</h3>
                     <p class="info-width mx-auto">Financial Management</p>
