@@ -501,6 +501,7 @@
 											<label for="inputContact">Contact</label> <input type="text"
 												class="form-control" name="contact" id="inputContact"
 												placeholder="Contact">
+												<span id="spnPhoneStatus"></span>
 										</div>
 										<div class="form-group col-md-6">
 											<label for="inputPwrd">Create Password</label> <input
@@ -660,7 +661,32 @@
 			}
 		}
 	</script>
+<script>
+$(document).ready(function() {
+    $('#inputContact').blur(function(e) {
+        if (validatePhone('inputContact')) {
+            $('#spnPhoneStatus').html('Valid');
+            $('#spnPhoneStatus').css('color', 'green');
+        }
+        else {
+            $('#spnPhoneStatus').html('Invalid');
+            $('#spnPhoneStatus').css('color', 'red');
+        }
+    });
+});
 
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /^[0-9-+]+$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+</script>
 
 </body>
 

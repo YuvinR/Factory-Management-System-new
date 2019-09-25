@@ -1,3 +1,5 @@
+<%@page import="com.itp.common.utils.CommonUtilities"%>
+<%@page import="com.itp.leave.services.LeaveServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -73,7 +75,7 @@
 	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar" class="navbar-expand-md mb-5 navbar-position"
-			style="margin-top: -40px">
+			style="margin-top: -40px;font-family: Montserrat, sans-serif">
 			<div class="sidebar-header  row" style="width: 265px;">
 				<!-- <h3>Bootstrap Sidebar</h3> -->
 				<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
@@ -137,7 +139,7 @@
 
 					<div class="col col-md-1">
 						<button class="btn btn add-btn" type="button" data-toggle="modal"
-							data-target="#exampleModal"
+							data-target="#exampleModal" data-role="toggle"
 							style="background: #4628B8; color: white; width: 120px; height: 39px;">
 							<i class="fas fa-plus"></i> <span>Add New</span>
 						</button>
@@ -148,7 +150,7 @@
 
 
 			<div class="table-wrapper-scroll-y my-custom-scrollbar"
-				style="margin-top: 40px; height: 500px;">
+				style="margin-top: 40px; height: 500px;font-family: Montserrat, sans-serif;font-size:14px;">
 				<table class="table table-bordered table-striped mb-0">
 					<thead>
 						<tr>
@@ -178,255 +180,6 @@
 
 						</tr>
 
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
-
-						<tr class="grid">
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-							<td>asdasdasd</td>
-
-							<td><button class="btn btn-success">
-									<i class="fas fa-pen-square center"></i>
-								</button></td>
-							<td><button class="btn btn-danger"
-									style="margin-left: 10px;">
-									<i class="far fa-trash-alt"></i>
-								</button></td>
-						</tr>
 
 					</tbody>
 
@@ -443,7 +196,7 @@
 		style="background-color: rgba(0, 0, 0, 0.5);">
 		<div class="modal-dialog registration-modal" role="document">
 			<div class="modal-content"
-				style="width: 700px; margin-bottom: 30px; margin-left: 260px;">
+				style="width: 700px; margin-bottom: 30px; margin-left: 260px;font-family: Montserrat, sans-serif;">
 				<div class="modal-header">
 					<h4 class="title col-md-6">Add Leave</h4>
 					<button type="button" class="close" data-dismiss="modal"
@@ -451,18 +204,25 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				
 				<div class="modal-body">
 					<div class="container">
 						<form id="registerForm" class="justify-content-center"
 							style="margin-left: 100px; margin-bottom: 30px;">
-
+									
 
 							<div class="form-group col-md-10">
-
+								<%
+										LeaveServiceImpl leaveServiceImpl = new LeaveServiceImpl();
+										String leaveid = CommonUtilities.generateLeaveID(leaveServiceImpl.getLeaveIDs());
+										
+										
+										
+									%>
 								<input type="text" class="form-control" id="formGroupUsernam"
-									aria-describedby="" placeholder="Leave ID" name="leaveId" disabled>
+									aria-describedby="" placeholder="Leave ID" name="leaveId" value="<%=leaveid%>" disabled>
 							</div>
-
+									
 							<div class="form-group col-md-10">
 								<label for="formGroupUsername" class="text-center">Employee
 									ID</label> <input type="text" class="form-control"
@@ -516,6 +276,13 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script src="./js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').toggleClass('active');
+
+			});
+		});
+	</script>
 </body>
 </html>
