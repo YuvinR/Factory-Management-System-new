@@ -10,55 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-
-<title>Salary Home Here</title>
-
-<link rel="stylesheet" href="css/stylesheet.css">
-
-<!--***nav bar css*** -->
-
-<<<<<<< HEAD
-        <nav class="navbar navbar-expand-md navbar-light  shadow-sm bg-white row nav-margin">
-            <a class="navbar-brand logo" href="index.jsp">
-                Bakthi Herbal Lanka
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-brand">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            Features
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            Staff
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            Help
-                        </a>
-                    </li>
-                    <!-- <h6 class="pt-3 ml-auto" style="font-size: 0.9rem;">User Name</h5> -->
-                    <li class="nav-item avatar">
-                        <a class="nav-link p-0" href="#">
-                            <span>
-=======
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900"
 	rel="stylesheet">
->>>>>>> 560aa5323ebc1bb38c25adcb4c3acc49a895dc58
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script
@@ -71,6 +27,10 @@
 <script src="https://kit.fontawesome.com/a65579f16a.js"></script>
 
 
+<title>Salary Home Here</title>
+
+<link rel="stylesheet" href="css/stylesheet.css">
+
 
 </head>
 <body>
@@ -80,7 +40,7 @@
 
 			<nav
 				class="navbar navbar-expand-md navbar-light  shadow-sm bg-white rounded row nav-margin">
-				<a class="navbar-brand logo" href="#"> Bakthi Herbal Lanka </a>
+				<a class="navbar-brand logo" href="index.jsp"> Bakthi Herbal Lanka </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"
 					aria-expanded="false" aria-label="Toggle navigation">

@@ -31,12 +31,12 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/header.css">
 <script src="./js/Registration.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>Dashboard</title>
 
 <style>
@@ -66,7 +66,8 @@
 
 			<nav
 				class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-				<a class="navbar-brand logo" href="index.jsp"> Bakthi Herbal Lanka </a>
+				<a class="navbar-brand logo" href="index.jsp"> Bakthi Herbal
+					Lanka </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"
 					aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +102,7 @@
 	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar" class="navbar-expand-md mb-5 navbar-position"
-			style="margin-top: -40px">
+			style="margin-top: -40px; font-family: Montserrat, sans-serif;">
 			<div class="sidebar-header  row" style="width: 265px;">
 				<!-- <h3>Bootstrap Sidebar</h3> -->
 				<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
@@ -163,12 +164,12 @@
 									<i class="fas fa-search text-white" aria-hidden="true"></i></span>
 							</div>
 						</div> -->
-						
-						 <div class="form-group has-search">
-		<span class="fa fa-search form-control-feedback"></span>
-		<input type="text" id="search" name="searchEmp" onkeyup="Search()"
-			class="form-control purple lighten-1" placeholder="Search">
-	</div>
+
+						<div class="form-group has-search">
+							<span class="fa fa-search form-control-feedback"></span> <input
+								type="text" id="search" name="searchEmp" onkeyup="Search()"
+								class="form-control purple lighten-1" placeholder="Search">
+						</div>
 
 					</div>
 
@@ -185,8 +186,10 @@
 
 
 			<div class="table-wrapper-scroll-y my-custom-scrollbar"
-				style="margin-top: 40px; height: 500px; width: 1270px;">
-				<table id="tableResp" class="table table-bordered table-striped mb-0 table-lg" style="font-size: 14px;">
+				style="margin-top: 40px; height: 500px; width: 1270px; font-family: Montserrat, sans-serif;">
+				<table id="tableResp"
+					class="table table-bordered table-striped mb-0 table-lg"
+					style="font-size: 14px;">
 					<thead>
 						<tr>
 							<th scope="col">Employee ID</th>
@@ -211,12 +214,15 @@
 							ArrayList<Employee> emplList = iEmployeeServices.getEmployees();
 
 							for (Employee employee : emplList) {
+								
+					
 						%>
 						<tr id="<%=employee.getEmployeeID()%>">
+						<input type="hidden" id="getemployeeImg" data-target="pimage" value="<%=employee.getImg()%>">
 
-							<td data-target="eid"><%=employee.getEmployeeID() %></td>
-							<td data-target="img"><img class="table-img"
-								style="border-radius: 70px;width: 55px;"
+							<td data-target="eid"><%=employee.getEmployeeID()%></td>
+							<td data-target="img"><img id="profimg" class="table-img"
+								style="border-radius: 70px; width: 55px;"
 								src="images/imagefiles/<%=employee.getImg()%>"></td>
 							<td data-target="fname"><%=employee.getFname()%></td>
 							<td data-target="lname"><%=employee.getLname()%></td>
@@ -227,7 +233,7 @@
 							<td data-target="unit"><%=employee.getUnit()%></td>
 							<td data-target="desig"><%=employee.getDesignation()%></td>
 							<td data-target="type"><%=employee.getType()%></td>
-
+							
 							<input type="hidden" id="getemployeeid">
 							<%-- <td><button class="btn btn-success" data-id="<%=employee.getEmployeeID()%>" data-role="update"
 									data-target="#updateModal" data-toggle="modal">Update</button></td> --%>
@@ -235,9 +241,15 @@
 										data-target="#deleteModal">
 										<i class="far fa-trash-alt"></i>
 									</button></td> -->
-							<td> <a href="#" data-role="update" data-id="<%=employee.getEmployeeID()%>" class="btn btn-success" ><i class="fas fa-pen-square"></i></a></td>
-									
-							<td> <a data-toggle="modal" data-id="<%=employee.getEmployeeID()%>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
+							<td><a href="#" data-role="update"
+								data-target="#updateModal" data-toggle="modal"
+								data-id="<%=employee.getEmployeeID()%>" class="btn btn-success"><i
+									class="fas fa-pen-square"></i></a></td>
+
+							<td><a data-toggle="modal"
+								data-id="<%=employee.getEmployeeID()%>"
+								class="deletemodal btn btn-danger" href="#deleteModal"><i
+									class="far fa-trash-alt"></i></a></td>
 						</tr>
 						<%
 							}
@@ -250,11 +262,102 @@
 	</div>
 
 
-	<!-- Modal -->
+
+
+	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalUpdate" aria-hidden="true">
+		<div class="modal-dialog update-modal" role="document">
+			<div class="modal-content "
+				style="width: 650px; margin-bottom: 30px;">
+				<div class="modal-header">
+					<h4 class="title col-md-6">Update</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<form method="POST" action="UpdateEmployeeServlet"
+							enctype="multipart/form-data">
+							<div class="custom-file col-md-4 center"
+								style="margin-left: 200px;">
+
+
+								<img id="blah2" src="./images/avatar.png" alt="your image"
+									style="width: 100px; height: 100px; border-radius: 70px;">
+								<input type="file" id="imgInp2" name="image">
+
+
+
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>First Name</label> <input type="text"
+									class="form-control" id="inputfname" name="fName">
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Last Name</label> <input type="text" class="form-control"
+									id="lname" name="lName">
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Email</label> <input type="email" class="form-control"
+									id="email" name="eMail">
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Contact No</label> <input type="text"
+									class="form-control" id="contactno" name="contactNo">
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label for="inputContact">Address</label> <input type="text"
+									class="form-control" name="address" id="inputAddressUpdate">
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Unit</label> <select id="inputUnit" name="unit"
+									class="form-control">
+									<option selected="" value="Default">Choose...</option>
+									<option>Production</option>
+									<option>Management</option>
+									<option>Distribution</option>
+								</select>
+							</div>
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Designation</label> <select id="inputDesig2"
+									onchange="changeType();" class="form-control"
+									name="designation">
+									<option selected value="Default">Choose...</option>
+									<option>Worker</option>
+									<option>Manager</option>
+									<option>Marketing Agent</option>
+								</select>
+							</div>
+
+							<div class="col-md-10" style="margin-left: 50px;">
+								<label>Employee Type</label> <select id="inputType2"
+									onchange="changeDesig();" class="form-control" name="empType">
+									<option selected value="Default">Choose...</option>
+									<option>Full-Time</option>
+									<option>Part-Time</option>
+
+								</select>
+							</div>
+							<div
+								style="margin-left: 65px; margin-top: 20px; width: 550px; padding-bottom: 10px;">
+								<button id="update" class="btn btn-success col-md-10">Update</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!--Delete Modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content" style="font-family: Montserrat, sans-serif;">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Confirmation
 						Alert!!!</h5>
@@ -271,105 +374,16 @@
 						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
 					</div>
 					<form action="DeleteEmployeeServlet" method="POST">
-					<div class="float-right">
-						<input type="hidden" id="deleteEmp" name="deleteText">
-						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
-					</div>
+						<div class="float-right">
+							<input type="hidden" id="deleteEmp" name="deleteText">
+							<button id="deleteServlet" class="btn btn-danger">Confirm</button>
+						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog update-modal" role="document">
-		<div class="modal-content "
-				style="width: 650px; margin-bottom: 30px;">
-				<div class="modal-header">
-					<h4 class="title col-md-6">Update</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container">
-						<form id="empRegister" method="POST" action="UpdateEmployeeServlet"
-							enctype="multipart/form-data">
-							<div class="custom-file col-md-4 center"
-										style="margin-left: 200px;">
-
-
-										<img id="blah2" src="./images/avatar.png" alt="your image"
-											style="width: 100px; height: 100px; border-radius: 70px;">
-										<input type="file" id="imgInp2" name="image">
-
-
-
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>First Name</label>
-										<input type="text" class="form-control" id="inputfname" name="fName" >
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>Last Name</label>
-										<input type="text" class="form-control" id="lname" name="lName" >
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>Email</label>
-										<input type="email" class="form-control" id="email" name="eMail" >
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>Contact No</label>
-										<input type="text" class="form-control" id="contactno" name="contactNo" >
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label for="inputContact">Address</label> 
-										<input type="text" class="form-control" name="address" id="inputAddress">
-									</div>
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>Unit</label> <select id="inputUnit" name="unit"
-												class="form-control">
-												<option selected="" value="Default">Choose...</option>
-												<option>Production</option>
-												<option>Management</option>
-												<option>Distribution</option>
-											</select>
-									</div>
-										<div class="col-md-10" style="margin-left:50px;">
-										<label>Designation</label> <select id="inputDesig2"
-												onchange="changeType();" class="form-control"
-												name="designation">
-												<option selected value="Default">Choose...</option>
-												<option>Worker</option>
-												<option>Manager</option>
-												<option>Marketing Agent</option>
-											</select>
-									</div>
-									
-									<div class="col-md-10" style="margin-left:50px;">
-										<label>Employee Type</label> <select id="inputType2"
-												onchange="changeDesig();" class="form-control"
-												name="empType">
-												<option selected value="Default">Choose...</option>
-												<option>Full-Time</option>
-												<option>Part-Time</option>
-
-											</select>
-									</div>
-									<div style="margin-left:65px; margin-top:20px;width:550px;padding-bottom:10px;">
-									<button id="update" class="btn btn-success col-md-10">Update</button>
-									</div>
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true"
 		style="background-color: rgba(0, 0, 0, 0.5);">
@@ -418,8 +432,9 @@
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">First Name</label> <input
-												type="text" class="form-control" id="inputEmail4"
-												placeholder="First Name" name="fname" requried>
+												type="text" class="form-control" id="inputFname"
+												placeholder="First Name" name="fname"> <span
+												id="errorName" style="color: red"></span>
 										</div>
 										<div class="form-group col-md-6">
 											<label>Unit</label> <select id="inputUnit" name="unit"
@@ -434,8 +449,8 @@
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">Last Name</label> <input type="text"
-												class="form-control" name="lname" id="inputEmail4"
-												placeholder="Last Name" requried>
+												class="form-control" name="lname" id="inputLname"
+												placeholder="Last Name">
 										</div>
 										<div class="form-group col-md-6">
 											<label>Designation</label> <select id="inputDesig"
@@ -472,44 +487,45 @@
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputEmail4">Email</label> <input type="email"
-												class="form-control" name="email" id="inputEmail4"
-												placeholder="Email" requried>
+												class="form-control" name="email" id="inputEmail"
+												placeholder="Email">
 										</div>
 										<div class="form-group col-md-6">
 											<label for="inputUsername">Username</label> <input
 												type="text" class="form-control" name="username"
-												id="inputUsername" placeholder="Username" requried>
+												id="inputUsername" placeholder="Username">
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputContact">Contact</label> <input type="text"
 												class="form-control" name="contact" id="inputContact"
-												placeholder="Contact" requried>
+												placeholder="Contact">
 										</div>
 										<div class="form-group col-md-6">
 											<label for="inputPwrd">Create Password</label> <input
 												type="password" class="form-control" name="createPwrd"
-												id="inputPwrd" placeholder="Password" requried>
+												id="inputPwrd" placeholder="Password">
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-md-6">
 											<label for="inputContact">Address</label> <input type="text"
-												class="form-control" name="address" id="inputContact"
-												placeholder="Address" requried>
+												class="form-control" name="address" id="inputAddress"
+												placeholder="Address">
 										</div>
 										<div class="form-group col-md-6">
 											<label for="confirmPwrd">Confirm Password</label> <input
 												type="password" class="form-control" name="confirmPwrd"
-												id="confirmPwrd" placeholder="Confirm Password" requried>
+												id="confirmPwrd" placeholder="Confirm Password">
 										</div>
 									</div>
 
 									<input type="button" class="btn btn-danger"
 										style="width: 120px;" data-dismiss="modal" value="Cancel">
 									<div class="float-right">
-										<button class="btn btn-primary mr-auto" style="width: 120px;">Confirm</button>
+										<input type="submit" class="btn btn-primary mr-auto submit"
+											style="width: 120px;" value="Confirm">
 									</div>
 								</div>
 						</form>
@@ -520,11 +536,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 
 
 
@@ -539,15 +550,11 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script src="./js/jquery-3.4.1.min.js"></script>
-	<script src="./js/jquery.freezeheader.js"></script>
-	<script>
-		$('table').freezeheader({
-			height : "300px"
-		})
-	</script>
-
-
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+	<script src="./js/registerForm.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sidebarCollapse').on('click', function() {
@@ -577,47 +584,61 @@
 		});
 	</script>
 
-	
+
 
 
 	<script>
+		$(document).on("click", ".deletemodal", function() {
+			var empid = $(this).data('id');
+			$(".modal-footer #deleteEmp").val(empid);
 
-		$(document).on("click", ".deletemodal", function () {
-		     var empid = $(this).data('id');
-		     $(".modal-footer #deleteEmp").val( empid );
-		   
 		})
 	</script>
-		
-<script>
-$(document).ready(function(){
-	
-		$(document).on('click', 'a[data-role=update]', function () {
-		    var id = $(this).data('id'); 
-			var firstname = $('#'+id).children('td[data-taget=fname]').text();
-		    var lastname = $("#"+id).children('td[data-target=lname]').text();
-		    var gender = $("#"+id).children('td[data-target=gender]').text();
-		    var email = $("#"+id).children('td[data-target=email]').text();
-		    var contactNo = $("#"+id).children('td[data-target=contactNo]').text();
-		    var address = $("#"+id).children('td[data-target=address]').text();
-		    var unit = $("#"+id).children('td[data-target=unit]').text();
-		    var desig = $("#"+id).children('td[data-target=desig]').text();
-		    var type = $("#"+id).children('td[data-target=type]').text();
-		   
-		    
-		    $('.modal-body #inputfname').val(firstname);
-		    $('.modal-body #lname').val(lastname);
-		    $('.modal-body #email').val(email);
-		    $('.modal-body #contactno').val(contactNo);
-		    $('.modal-body #inputAddress').val(address);
-		    $('.modal-body #inputUnit').val(unit);
-		    $('.modal-body #inputDesig2').val(desig);
-		    $('.modal-body #inputType2').val(type);
-		     $('#updateModal').modal('toggle');
-		})
-});
+
+	<script>
+		$(document).ready(
+				function() {
+
+					$(document).on(
+							'click',
+							'a[data-role=update]',
+							function() {
+								var id = $(this).data('id');
+								var firstname = $('#' + id).children(
+										'td[data-taget=fname]').text();
+								var lastname = $("#" + id).children(
+										'td[data-target=lname]').text();
+								var gender = $("#" + id).children(
+										'td[data-target=gender]').text();
+								var email = $("#" + id).children(
+										'td[data-target=email]').text();
+								var contactNo = $("#" + id).children(
+										'td[data-target=contactNo]').text();
+								var address = $("#" + id).children(
+										'td[data-target=address]').text();
+								var unit = $("#" + id).children(
+										'td[data-target=unit]').text();
+								var desig = $("#" + id).children(
+										'td[data-target=desig]').text();
+								var type = $("#" + id).children(
+										'td[data-target=type]').text();
+								
+								var images = $('#getemployeeImg').val();
+
+								$('.modal-body #inputfname').val(firstname);
+								$('.modal-body #lname').val(lastname);
+								$('.modal-body #email').val(email);
+								$('.modal-body #contactno').val(contactNo);
+								$('.modal-body #inputAddressUpdate').val(images);
+								$('.modal-body #inputUnit').val(unit);
+								$('.modal-body #inputDesig2').val(desig);
+								$('.modal-body #inputType2').val(type);
+								$("#blah2").attr('src','./images/imagefiles/' + images);
+							})
+				});
 	</script>
-	
+
+
 	<!-- Search function -->
 	<script>
 		function Search() {
@@ -639,7 +660,8 @@ $(document).ready(function(){
 			}
 		}
 	</script>
-	
+
+
 </body>
 
 </html>

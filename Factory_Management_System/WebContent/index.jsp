@@ -147,7 +147,7 @@
                     <p class="info-width mx-auto">Salary Management</p>
                 </a>
 
-                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards">
+                <a class="col-md-2 text-center btn btn-light border border-dark feature-cards" href="financialhomepage.jsp">
                     <img src="./images/investment.png" class="image">
                     <h3 class="overview-header">Financial Management</h3>
                     <p class="info-width mx-auto">Financial Management</p>

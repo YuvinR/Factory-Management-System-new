@@ -38,7 +38,6 @@
 
 <body>
 
-<<<<<<< HEAD
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
@@ -82,44 +81,7 @@
                         </a>
                     </li>
                 </ul>
-                <!-- <div class="nav-item avatar">
-=======
-	<div class="container-fluid">
 
-		<nav
-			class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
-			<a class="navbar-brand logo" href="#"> Bakthi Herbal Lanka </a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarNav" aria-controls="navbarNav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link navbar-brand">
-							Home </a></li>
-					<li class="nav-item"><a class="nav-link"> Features </a></li>
-					<li class="nav-item"><a class="nav-link"> Staff </a></li>
-					<li class="nav-item"><a class="nav-link"> Help </a></li>
-					<!-- <h6 class="pt-3 ml-auto" style="font-size: 0.9rem;">User Name</h5> -->
-					<li class="nav-item avatar"><a class="nav-link p-0" href="#">
-							<span> </span> <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small name">Administrator</span>
-							<img
-							src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
-							class="rounded-circle z-depth-0" alt="avatar image" height="45">
-					</a></li>
-				</ul>
-				<!-- <div class="nav-item avatar">
->>>>>>> 560aa5323ebc1bb38c25adcb4c3acc49a895dc58
-                            <a class="nav-link p-0" href="#">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                      alt="avatar image" height="45">
-                                  </a>
-                    </div> -->
-			</div>
-		</nav>
-	</div>
 
 	<div class="wrapper">
 		<!-- Sidebar  -->

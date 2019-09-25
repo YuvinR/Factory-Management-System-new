@@ -111,7 +111,7 @@
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar" class="navbar-expand-md mb-5 navbar-position" style="margin-top: -40px">
+        <nav id="sidebar" class="navbar-expand-md mb-5 navbar-position" style="margin-top: -40px;font-family: Montserrat, sans-serif;">
             <div class="sidebar-header  row" style="width: 265px;">
                 <!-- <h3>Bootstrap Sidebar</h3> -->
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
@@ -224,7 +224,7 @@
 
 
 
-            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top:40px;height: 500px;">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top:40px;height: 500px;font-family: Montserrat, sans-serif;">
                 <table id="loginT" class="table table-bordered table-striped mb-0">
                 
                     <thead>
@@ -238,11 +238,7 @@
                             <th scope="col">Username</th>
                             <th scope="col">Password</th>
                             <th scope="col">Edit</th>
-<!-- <<<<<<< HEAD
-                          
-=======
-                            <th scope="col">Delete<"WebContent/WEB-INF/Factory.xml"/th>
->>>>>>> 73d9d2cb2e73344dc38b362d43675698b9c4ba5c -->
+
                         </tr>
                     </thead>
                     <tbody>
