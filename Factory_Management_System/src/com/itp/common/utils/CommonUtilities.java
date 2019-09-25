@@ -51,6 +51,21 @@ public static final Properties properties = new Properties();
 		return id;
 	}
 	
+	/* to generate supplier payment IDs */
+	public static String generateSupplierPaymentID(ArrayList<String> arrayList) {
+
+		String id;
+		int next = arrayList.size();
+		next++;
+		id = CommonConstants.SupplierPayment_ID_PRIFIX+ next;
+		if (arrayList.contains(id)) {
+			next++;
+			id = CommonConstants.SupplierPayment_ID_PRIFIX + next;
+		}
+		return id;
+	}
+	
+	
 	public static String generateEmployeeID(ArrayList<String> arrayList) {
 
 		String id;

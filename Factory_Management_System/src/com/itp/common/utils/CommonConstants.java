@@ -50,6 +50,23 @@ public static final String QUERY_XML = "queryFilePath";
 	
 	public static final String QUERY_ID_REMOVE_RawMaterial  = "remove_rawMaterial";
 	
+	/* supplier payment */
+	
+	public static final String SupplierPayment_ID_PRIFIX = "SP1";
+
+	public static final String QUERY_ID_GET_SupplierPayment_ID = "supPayment_by_id";
+	
+	public static final String QUERY_ID_GET_SupplierPayment_IDS = "supPayment_ids";
+	
+	public static final String QUERY_ID_ALL_SupplierPayments = "all_supPayments";
+	
+	public static final String QUERY_ID_INSERT_SupplierPayment = "insert_supPayment";
+	
+    public static final String QUERY_ID_UPDATE_SupplierPayment  = "update_supPayment";
+	
+	public static final String QUERY_ID_REMOVE_SupplierPayment  = "remove_supPayment";
+	
+	
 	/* employee */
 	
 	public static final String EMPLOYEE_ID_PRIFIX = "E1";

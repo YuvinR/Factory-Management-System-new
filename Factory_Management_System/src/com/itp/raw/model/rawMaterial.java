@@ -4,6 +4,8 @@ public class rawMaterial {
 
 	private String rawMaterialID;
 	
+	private String image;
+
 	private String rawMaterialName;
 	
 	private String rawMaterialDes;
@@ -22,6 +24,14 @@ public class rawMaterial {
 		this.rawMaterialID = rawMaterialID;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	public String getRawMaterialName() {
 		return rawMaterialName;
 	}

@@ -198,6 +198,7 @@
 					<thead>
 						<tr class="p-3 mb-2 bg-success text-white">
 							<th scope="col">Raw Material ID</th>
+							<th scope="col">Raw Material Image</th>
 							<th scope="col">Raw Material Name</th>
 							<th scope="col">Raw Material Description</th>
 							<th scope="col">Store ID</th>
@@ -216,9 +217,11 @@
 
 							for (rawMaterial rMaterial : arrayList) {
 						%>
-
+ 
 						<tr id="<%=rMaterial.getRawMaterialID()%>">
 							<td data-target="idR"><%=rMaterial.getRawMaterialID() %></td>
+							<td data-target="imgR"><img class="table-img" style="border-radius: 70px;width: 55px;"
+								src="images/imagefiles/<%=rMaterial.getImage()%>"></td>
 							<td data-target="nameR"><%=rMaterial.getRawMaterialName() %></td>
 							<td data-target="desR"><%=rMaterial.getRawMaterialDes() %></td>
 							<td data-target="stID"><%=rMaterial.getStoreID() %></td>
@@ -243,6 +246,7 @@
 					<tfoot>
 						<tr class="p-3 mb-2 bg-success text-white">
 							<th scope="col">Raw Material ID</th>
+							<th scope="col">Raw Material Image</th>
 							<th scope="col">Raw Material Name</th>
 							<th scope="col">Raw Material Description</th>
 							<th scope="col">Store ID</th>
@@ -281,8 +285,16 @@
 
 					<form action="AddRawMaterialServlet" method="POST"
 						id="RawMaterialRegistration">
+						
+						<div class="custom-file col-md-4 ml-auto" style="margin-left: 60px;">
 
-						<div class="form-group">
+										<img id="rawImage" src="./images/avatar.png" alt="Raw-material image"
+											style="width: 130px; height: 130px; border-radius: 70px;">
+										<input type="file" id="imageInp" name="image" style="margin-bottom: 10px"> 
+
+						</div>
+
+						<div class="form-group" style="margin-top: 10px">
 
 							<!--   To get auto increment raw material ID to the add raw material form -->
 							<%
@@ -517,7 +529,6 @@
 	</script>
 
 
-
 	<script>
 		$(document).on("click", ".deletemodal", function() {
 			var rid = $(this).data('id');
@@ -557,6 +568,7 @@
 					$(document).on('click','a[data-role=update]',function() {
 
 								var id = $(this).data('id');
+								var rawImage = $('#'+id).children('td[data-target=]').text();
 								var rawName = $('#'+id).children('td[data-target=nameR]').text();
 								var rawDesc = $('#'+id).children('td[data-target=desR]').text();
 								var storeID = $('#'+id).children('td[data-target=stID]').text();
@@ -565,6 +577,7 @@
 								var rid = $('#'+id).children('td[data-target=idR]').text();
 
 								$('#rID').val(rid);
+								$('#rImage').val(rawImage);
 								$('#rName').val(rawName);
 								$('#rawDes').val(rawDesc);
 								$('#storeID').val(storeID);
@@ -575,6 +588,25 @@
 
 							})
 				});
+	</script>
+	
+	<!-- for image upload -->
+		<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#rawImage').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imageInp").change(function() {
+			readURL(this);
+		});
 	</script>
 	
 	<!-- drop down validation in modal-->
@@ -608,6 +640,11 @@
 </script>
  -->
 
+ <!-- for validations -->
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>  -->
 
 </body>
 </html>

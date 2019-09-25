@@ -36,7 +36,7 @@ public class RawMaterialServiceImpl implements IRawMaterialServices{
 	
 	public void addRawMaterial(rawMaterial raw_material) {
 		
-	String rawMaterialID = CommonUtilities.generateRawMaterialID(getRawMaterialIDs());
+	//String rawMaterialID = CommonUtilities.generateRawMaterialID(getRawMaterialIDs());
 
 	try {
 
@@ -46,13 +46,14 @@ public class RawMaterialServiceImpl implements IRawMaterialServices{
 				.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_INSERT_RawMaterial));
 		connection.setAutoCommit(false);
 
-		raw_material.setRawMaterialID(rawMaterialID);
+		//raw_material.setRawMaterialID(rawMaterialID);
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, raw_material.getRawMaterialID());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, raw_material.getRawMaterialName());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getRawMaterialDes());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material.getStoreID());
 		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, raw_material.getUnitPrice());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, raw_material.getStatus());
+		
 		preparedstatement.execute();
 		connection.commit();
 		
@@ -271,7 +272,7 @@ public void removeRawMaterial(String rMaterialID) {
 public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) {
 
 	/*
-	 * Before fetching employee it checks whether employee ID is available
+	 * Before fetching raw materials it checks whether raw material iD is available
 	 */
 	if (rMaterialID != null && !rMaterialID.isEmpty()) {
 		/*

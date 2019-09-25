@@ -134,8 +134,8 @@
 	<!-- insert raw-material Query -->
 	<query id="insert_rawMaterial">
         <![CDATA[
-          	insert into raw_material (rID, rName, rDescription, storeID, uPrice, status) 
-          	values (?, ?, ?, ?, ?, ?)
+          	insert into raw_material (rID, rImage, rName, rDescription, storeID, uPrice, status) 
+          	values (?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -164,7 +164,7 @@
 	<query id="update_rawMaterial">
          <![CDATA[        
             update raw_material as rm 
-            set rm.rName = ?, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status = ? 
+            set rm.rName = ?, rm.Image, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status = ? 
             where rm.rID = ?
         ]]>
 	</query>
@@ -177,6 +177,56 @@
         ]]>
 	</query>
 <!-- Raw Material END -->
+
+<!--SUPPLIER PAYMENT BEGIN -->
+
+	<!-- Select all supplier payment Query -->
+	<query id="insert_supPayment">
+        <![CDATA[
+          	insert into supplier_payment (spID, supID, rID, rName, qty, uPrice, total) 
+          	values (?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular supplier payment by id Query -->
+	<query id="supPayment_by_id">
+         <![CDATA[        
+            select * from supplier_payment where supplier_payment .spID = ?
+        ]]>
+	</query>
+
+	<!-- Select all supplier payment -->
+	<query id="all_supPayment">
+         <![CDATA[        
+            select * from supplier_payment
+        ]]>
+	</query>
+
+	<!-- Delete a particular supplier by id Query -->
+	<query id="remove_supPayment">
+         <![CDATA[        
+            delete from supplier_payment where supplier_payment.supID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular supplier by id Query -->
+	<query id="update_supPayment">
+         <![CDATA[        
+            update supplier_payment as sp 
+            set sp.supID = ?, sp.rID = ?, sp.Name = ?, sp.qty = ?, sp.uPrice = ?, sp.total = ?
+            where sp.spID = ?
+        ]]>
+	</query>
+	
+		<!-- Get supplier IDs Query -->
+	<query id="supPayment_ids">
+         <![CDATA[        
+            select sp.spID from supplier_payment as sp
+            
+        ]]>
+	</query>
+<!-- SUPPLIER PAYMENT END -->
+
 
 <!-- LEAVE BEGIN -->
 

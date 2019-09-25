@@ -22,7 +22,7 @@ public class QueryUtilities {
 		Element element = null;
 		
 
-		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\Bakthi-Herbal-Lanka\\WEB-INF\\Factory.xml"))
+		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\Factory_Management_System\\WEB-INF\\Factory.xml"))
 					.getElementsByTagName(CommonConstants.XML_TAG_NAME);
 
 
