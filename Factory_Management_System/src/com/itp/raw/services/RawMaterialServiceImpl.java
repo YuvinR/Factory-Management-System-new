@@ -48,11 +48,12 @@ public class RawMaterialServiceImpl implements IRawMaterialServices{
 
 		//raw_material.setRawMaterialID(rawMaterialID);
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, raw_material.getRawMaterialID());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, raw_material.getRawMaterialName());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getRawMaterialDes());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material.getStoreID());
-		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, raw_material.getUnitPrice());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, raw_material.getStatus());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, raw_material.getImage());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getRawMaterialName());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material.getRawMaterialDes());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, raw_material.getStoreID());
+		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_SIX, raw_material.getUnitPrice());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, raw_material.getStatus());
 		
 		preparedstatement.execute();
 		connection.commit();
@@ -173,11 +174,12 @@ private ArrayList<rawMaterial> actionOnrawMaterial(String rawMaterialID){
 			rawMaterial raw_Material = new rawMaterial();
 			
 			raw_Material.setRawMaterialID(resultSet.getString(CommonConstants.COLUMN_INDEX_ONE));
-			raw_Material.setRawMaterialName(resultSet.getString(CommonConstants.COLUMN_INDEX_TWO));
-			raw_Material.setRawMaterialDes(resultSet.getString(CommonConstants.COLUMN_INDEX_THREE));
-			raw_Material.setStoreID(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
-			raw_Material.setUnitPrice(resultSet.getDouble(CommonConstants.COLUMN_INDEX_FIVE));
-			raw_Material.setStatus(resultSet.getString(CommonConstants.COLUMN_INDEX_SIX));
+			raw_Material.setImage(resultSet.getString(CommonConstants.COLUMN_INDEX_TWO));
+			raw_Material.setRawMaterialName(resultSet.getString(CommonConstants.COLUMN_INDEX_THREE));
+			raw_Material.setRawMaterialDes(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
+			raw_Material.setStoreID(resultSet.getString(CommonConstants.COLUMN_INDEX_FIVE));
+			raw_Material.setUnitPrice(resultSet.getDouble(CommonConstants.COLUMN_INDEX_SIX));
+			raw_Material.setStatus(resultSet.getString(CommonConstants.COLUMN_INDEX_SEVEN));
 			rawMaterialList.add(raw_Material);
 			
 		}
@@ -282,12 +284,12 @@ public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) 
 		connection = DBConnection.getDBConnection();
 		preparedstatement = connection
 				.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_UPDATE_RawMaterial));
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, rmaterial.getRawMaterialName());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, rmaterial.getRawMaterialDes());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getStoreID());
-		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getUnitPrice());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getStatus());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, rmaterial.getRawMaterialID());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, rmaterial.getRawMaterialName());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getRawMaterialDes());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getStoreID());
+		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getUnitPrice());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, rmaterial.getStatus());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, rmaterial.getRawMaterialID());
 		preparedstatement.executeUpdate();
 
 	}catch (SQLException | SAXException | IOException | ParserConfigurationException | 
@@ -311,7 +313,7 @@ public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) 
 		}
 	}
 }
-// Get the updated employee
+// Get the updated raw materials
 return null;
 }
 }

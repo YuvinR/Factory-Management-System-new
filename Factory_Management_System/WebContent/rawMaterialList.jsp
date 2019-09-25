@@ -229,7 +229,7 @@
 							<td data-target="statusR"><%=rMaterial.getStatus() %></td>
 							
 							<input type="hidden" id="getRawMaterialId">
-							<td><a data-toggal="modal" data-role="update" data-id="<%=rMaterial.getRawMaterialID()%>" class="updatemodal btn btn-success" href="#updateModal"><i
+							<td><a data-toggle="modal" data-role="update" data-id="<%=rMaterial.getRawMaterialID()%>" class="updatemodal btn btn-success" href="#updateModal"><i
 								class="fas fa-pen-square" style="font-size: 15px;"></i></a></td>
 
 							<td><a data-toggle="modal"
@@ -284,7 +284,7 @@
 				<div class="modal-body">
 
 					<form action="AddRawMaterialServlet" method="POST"
-						id="RawMaterialRegistration">
+						id="RawMaterialRegistration" enctype="multipart/form-data">
 						
 						<div class="custom-file col-md-4 ml-auto" style="margin-left: 60px;">
 
@@ -302,7 +302,7 @@
 								String rawID = CommonUtilities.generateRawMaterialID(iRMaterialServices.getRawMaterialIDs());
 							%>
 							<label>Material ID</label> <input type="text" value="<%=rawID%>"
-								class="form-control" name="materialID" Readonly>
+								class="form-control" name="rID" Readonly> <!-- Change materialID -->
 						</div>
 
 						<div class="form-group">
@@ -568,7 +568,7 @@
 					$(document).on('click','a[data-role=update]',function() {
 
 								var id = $(this).data('id');
-								var rawImage = $('#'+id).children('td[data-target=]').text();
+								//var rawImage = $('#'+id).children('td[data-target=]').text();
 								var rawName = $('#'+id).children('td[data-target=nameR]').text();
 								var rawDesc = $('#'+id).children('td[data-target=desR]').text();
 								var storeID = $('#'+id).children('td[data-target=stID]').text();
@@ -577,14 +577,14 @@
 								var rid = $('#'+id).children('td[data-target=idR]').text();
 
 								$('#rID').val(rid);
-								$('#rImage').val(rawImage);
+								//$('#rImage').val(rawImage);
 								$('#rName').val(rawName);
 								$('#rawDes').val(rawDesc);
 								$('#storeID').val(storeID);
 								$('#uPrice').val(uPrice);
 								$('#Status').val(status);
 
-								$('#updateModal').modal('toggle');
+								//$('#updateModal').modal('toggle');
 
 							})
 				});

@@ -86,7 +86,7 @@ public ArrayList<String> getSupplierIDs(){
 		
 		ArrayList<String> arrayList = new ArrayList<String>();
 		/*
-		 * List of employee IDs will be retrieved from EmployeeQuery.xml
+		 * List of supplier IDs will be retrieved from Factory.xml
 		 */
 		try {
 			connection = DBConnection.getDBConnection();
@@ -119,12 +119,12 @@ public ArrayList<String> getSupplierIDs(){
 	}
 	
 /**
- * Employee details can be retrieved based on the provided employee ID
+ * supplier details can be retrieved based on the provided supplier ID
  * 
- * @param employeeID
- *            - Employee details are filtered based on the ID
+ * @param supplierID
+ *            - Supplier details are filtered based on the ID
  * 
- * @see #actionOnEmployee()
+ * @see #actionOnSupplier()
  */
 @Override
 public Supplier getSupplierByID(String supplierID) {
@@ -310,10 +310,10 @@ public Supplier updateSupplier(String supplierID, Supplier supplier) {
 @Override
 public void removeSupplier(String supplierID) {
 
-	// Before deleting check whether employee ID is available
+	// Before deleting check whether supplier ID is available
 	if (supplierID != null && !supplierID.isEmpty()) {
 		/*
-		 * Remove employee query will be retrieved from EmployeeQuery.xml
+		 * Remove supplier query will be retrieved from factory.xml
 		 */
 		try {
 			connection = DBConnection.getDBConnection();

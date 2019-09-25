@@ -1,6 +1,6 @@
 package com.itp.supplierPayment.model;
 
-public class supplier_payment {
+public class supplierPayment {
 
 	private String supPaymentID;
 	

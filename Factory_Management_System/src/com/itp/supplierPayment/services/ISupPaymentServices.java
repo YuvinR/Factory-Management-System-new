@@ -1,9 +1,10 @@
 package com.itp.supplierPayment.services;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import com.itp.sup.model.Supplier;
-import com.itp.supplierPayment.model.supplier_payment;
+import com.itp.supplierPayment.model.supplierPayment;
 
 public interface ISupPaymentServices {
 
@@ -13,7 +14,28 @@ public interface ISupPaymentServices {
 	 * Add supplier payment for supplier payment table
 	 * @param supplier payment
 	 */
-	public void addSupPayment(supplier_payment supPayment);
+	public void addSupPayment(supplierPayment supPayment);
 	
+	/**
+	 * Get a particular Supplier Payment
+	 * 
+	 * @param supplierPaymentID
+	 * @return SupplierPayment
+	 */
+	public supplierPayment getSupPaymenyByID(String supPaymentID);
 	
+	/**
+	 * Get all list of supplier_Payment
+	 * 
+	 * @return ArrayList<Supplier Payment>
+	 */
+	public ArrayList<supplierPayment> getSupPayments();
+	
+	public ArrayList<String> getSupPaymentIDs();
+
+	public void removeSupPayment(String supPaymentID);
+
+
+
+
 }

@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="./css/dashBoardStyleSheet.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/table.css">
+    
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 .has-search .form-control {
@@ -225,7 +230,7 @@
                         <th scope="col">Tel No.</th>
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
-                        <th scope="col">Product ID</th>
+                        <th scope="col">Raw Material ID</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -253,7 +258,7 @@
 						
 					<!-- 	<input type="hidden" id ="getsupplierid"> -->
 						
-						<td> <a data-toggal="modal" data-role="update" data-id="<%=supplier.getSupplierID() %>" class="btn btn-success" href="#updateModal"><i class="fas fa-pen-square" style="font-size:15px;"></i></a> </td>
+						<td> <a data-toggle="modal" data-target="#updateModal" data-role="update" data-id="<%=supplier.getSupplierID() %>" class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></a> </td>
 						
 						<td> <a data-toggle="modal" data-id="<%=supplier.getSupplierID() %>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
 						
@@ -268,7 +273,7 @@
                       <th scope="col">Tel No.</th>
                       <th scope="col">Email</th>
                       <th scope="col">Address</th>
-                      <th scope="col">Product ID</th>
+                      <th scope="col">Raw Material ID</th>
                       <th scope="col">edit</th>
                       <th scope="col">delete</th>
                   </tr>
@@ -279,101 +284,40 @@
 
 </div>
 </div>
-               
 
-            <!-- Modal -->
-            <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content" style=" background-color: #fefefe;">
-                  
-                  <div class="modal-header">
-                    <h3 class="modal-title">Add Supplier</h3> 
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  
-                  <div class="modal-body">
-
-                    <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" style="height:130%; width:100%;">
-                    
-                     <div class="form-group">
-                     
-                      <!--   To get auto increment supplier ID to the supplier registration form -->
-                     <%
-                     ISupplierServices iSupServices = new SupplierServiceImpl();
-                     String sID = CommonUtilities.generateSupplierID(iSupServices.getSupplierIDs());
-                     %>
-                       <label>Supplier ID</label>
-                       <input type="text" value="<%=sID %>" class="form-control" name="supplierID" Readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="validation1">Supplier Name</label>
-                        <input type="text" class="form-control" name="supName" id="validation1" placeholder="Supplier Name" required>
-                        <div class="invalid-feedback">
-                            Please provide a supplier name.
-                        </div>
-                    </div>       
-
-						<div class="form-group">
-						<label>Raw Material ID</label> 
-						<select id="inputProID" name="proId" class="form-control">
-						
-						<!-- to get the raw material IDs in the database to the drop down -->
-                        <%Connection connection = DBConnection.getDBConnection();
-						  Statement statement = connection.createStatement();
-						  ResultSet resultSet = statement.executeQuery("SELECT rID FROM raw_material");	  
-							%>
-                            <option selected="" value="Default">Choose...</option>
-                            <%while(resultSet.next()){ %>
-                            <option><%=resultSet.getString(1) %></option>
-                          	<%} %>
-                            
-						</select>
+<!--DELETE Modal -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteModalLabel">Confirmation
+						Alert!!!</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to delete this record?</p>
+				</div>
+				<div class="modal-footer">
+					<div class="float-left">
+						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
 					</div>
-					
-					
-                    <div class="form-group">
-                        <label for="validation4">Contact Number</label>
-                        <input type="text" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
-                            <div class="invalid-feedback">
-                                Please provide a contact number.
-                            </div>
+					<form action="DeleteSupplierServlet" method="POST">
+					<div class="float-right">
+						<input type="hidden" id="deleteSup" name="deleteText">
+						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Delete Modal End -->
 
-                    </div>
-
-                    <div class="form-group">
-                        <label for="validation5">Email</label>
-                        <input type="text" class="form-control" name="email" id="validation5" placeholder="Email" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid email.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="validation6">Address</label>
-                        <input type="text" class="form-control" name="address" id="validation6" placeholder="Address" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid Address.
-                        </div>
-                    </div>
-
-             
-
-                  
-                  <div class="modal-footer">
-                  
-                    <input class="btn btn-primary btn-block" type="submit" value="Confirm">
-                  
-                  </div>
-                     </form>
-                     </div>
-                </div>
-              </div>
-            </div>
-            <!-- Modal End -->
-            
-   	          <!-- Update Modal -->
+                <!-- Update Modal -->
             <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenterTitle"  aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
@@ -401,7 +345,7 @@
                         <label for="validation2">Raw Material ID</label>
                         <input type="text" class="form-control" name="proId" id="pId" placeholder="Product Name" required>
                         <div class="invalid-feedback">
-                            Please provide a product ID.
+                            Please provide a Raw Material ID.
                         </div>
                     </div>
 
@@ -451,46 +395,115 @@
                 </div>
               </div>
             </div> 
-            <!-- Update Modal End -->
-          
-			<!--DELETE Modal -->
-		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">Confirmation
-						Alert!!!</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<p>Are you sure to delete this record?</p>
-				</div>
-				<div class="modal-footer">
-					<div class="float-left">
-						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-					</div>
-					<form action="DeleteSupplierServlet" method="POST">
-					<div class="float-right">
-						<input type="hidden" id="deleteSup" name="deleteText">
-						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
-					</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Delete Modal End -->
+            <!-- Update Modal End --> 
 
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content" style=" background-color: #fefefe;">
+                  
+                  <div class="modal-header">
+                    <h3 class="modal-title">Add Supplier</h3> 
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  
+                  <div class="modal-body">
+
+                    <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" style="height:130%; width:100%;">
+                    
+                     <div class="form-group">
+                     
+                      <!--   To get auto increment supplier ID to the supplier registration form -->
+                     <%
+                     ISupplierServices iSupServices = new SupplierServiceImpl();
+                     String sID = CommonUtilities.generateSupplierID(iSupServices.getSupplierIDs());
+                     %>
+                       <label>Supplier ID</label>
+                       <input type="text" value="<%=sID %>" class="form-control" name="supplierID" Readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="validation1">Supplier Name</label>
+                        <input type="text" class="form-control" name="supName" id="validation1" placeholder="Supplier Name" required>
+                         <div class="invalid-feedback">
+                            Please provide a supplier name.
+                        </div> 
+                    </div>       
+
+						<div class="form-group">
+						<label>Raw Material ID</label> 
+						<select id="inputProID" name="proId" class="form-control">
+						
+						<!-- to get the raw material IDs in the database to the drop down -->
+                        <%Connection connection = DBConnection.getDBConnection();
+						  Statement statement = connection.createStatement();
+						  ResultSet resultSet = statement.executeQuery("SELECT rID FROM raw_material");	  
+							%>
+                            <option selected="" value="Default">Choose...</option>
+                            <%while(resultSet.next()){ %>
+                            <option><%=resultSet.getString(1) %></option>
+                          	<%} %>
+                            
+						</select>
+					</div>
+					
+					
+                    <div class="form-group">
+                        <label for="validation4">Contact Number</label>
+                        <input type="text" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
+                             <div class="invalid-feedback">
+                                Please provide a contact number.
+                            </div> 
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validation5">Email</label>
+                        <input type="text" class="form-control" name="email" id="validation5" placeholder="Email" required>
+                         <div class="invalid-feedback">
+                            Please provide a valid email.
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="validation6">Address</label>
+                        <input type="text" class="form-control" name="address" id="validation6" placeholder="Address" required>
+                         <div class="invalid-feedback">
+                            Please provide a valid Address.
+                        </div> 
+                    </div>
+
+             
+
+                  
+                  <div class="modal-footer">
+                  
+                    <input class="btn btn-primary btn-block" type="submit" value="Confirm">
+                  
+                  </div>
+                     </form>
+                     </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal End -->
+            
+   	        
+          
+			
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
                     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+			<!-- validation -->
+			<!--  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+			<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+			<script src="./js/supplierForm.js"></script>  -->
+			
 
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -507,7 +520,7 @@
                 });
             </script>
 
-            <script>
+             <script>
                 // Example starter JavaScript for disabling form submissions if there are invalid fields
                 (function() {
                     'use strict';
@@ -526,7 +539,7 @@
                         });
                     }, false);
                 })();
-            </script>
+            </script>  
 
 
 <script>
@@ -567,20 +580,18 @@
 		$(document).on("click", ".deletemodal", function () {
 		     var supid = $(this).data('id');
 		     $(".modal-footer #deleteSup").val( supid );
-		     // As pointed out in comments, 
-		     // it is unnecessary to have to manually call the modal.
-		     // $('#addBookDialog').modal('show');
+		    
 		})
 	</script>
 	
-		<script>
+	<!-- 	<script>
 
 		$(document).on("click", ".deletemodal", function () {
 		     var supid = $(this).data('id');
 		     $(".modal-footer #deleteSup").val( supid );
 		   
 		})
-	</script>
+	</script> -->
 
 <!-- Update Modal -->
 <script>
@@ -603,7 +614,7 @@ $(document).ready(function(){
         $('#sAddress').val(address);
         $('#pId').val(productID);
         
-        $('#updateModal').modal('toggle');
+
   	  
     })
 });
@@ -631,11 +642,11 @@ $(document).ready(function(){
 		}
 	</script>
 
-<!-- <!-- for validations -->
-<script
+ <!-- for validations -->
+<!-- <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script> -->
-  
+  crossorigin="anonymous"></script>
+   -->
 </body>
 </html>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import com.itp.sup.model.Supplier;
+import com.itp.supplierPayment.model.supplierPayment;
 
 /**
  * @author HP
@@ -31,9 +32,9 @@ public interface ISupplierServices {
 	public Supplier getSupplierByID(String supplierID);
 	
 	/**
-	 * Get all list of employees
+	 * Get all list of suppliers
 	 * 
-	 * @return ArrayList<Employee>
+	 * @return ArrayList<Supplier>
 	 */
 	public ArrayList<Supplier> getSuppliers();
 	
@@ -54,5 +55,6 @@ public interface ISupplierServices {
 	public void removeSupplier(String supplierID);
 	
 	 public ArrayList<String> getSupplierIDs();
+
 	
 }

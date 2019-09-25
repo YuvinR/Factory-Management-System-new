@@ -266,6 +266,9 @@
             where am.machine_no = ?
         ]]>
 	</query>
+	
+		
+	
 <!-- MACHINE END -->
 </Querys>
 
