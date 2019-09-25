@@ -79,24 +79,22 @@
                                             Sign In
                                         </h2>
 
-                                        <form class="form-sign-in pt-3 pb-4"
+                                        <form method="POST" action="AddEmployeeServlet" class="form-sign-in pt-3 pb-4"
                                             style="width: 100%;max-width:330px;margin:0 auto;">
                                             <div class="form-group">
                                                 <label for="formGroupUsername" class="text-center">Username</label>
                                                 <input type="text" class="form-control" id="formGroupUsernam"
-                                                    aria-describedby="" placeholder="Username">
+                                                    aria-describedby="" name="uname" placeholder="Username">
                                             </div>
                                             <div class="form-group form-align">
                                                 <label for="formGroupPassword" class="">Password</label>
                                                 <input type="password" class="form-control" id="formGroupPassword"
-                                                    aria-describedby="" placeholder="Password">
+                                                    aria-describedby="" name="pwrd" placeholder="Password">
                                             </div>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                                                <a href="#" class="ml-5" style="font-size: 15px;cursor: pointer;">forgot
-                                                    password
-                                                </a>
+                                               
                                             </div>
                                             <div class="pt-4">
                                                 <button class="btn btn-outline-primary btn-block">SIGN IN</button>

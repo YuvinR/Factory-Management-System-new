@@ -37,9 +37,6 @@ $(function(){
             	required: true
             	
             },
-            contact: {
-            	required: true
-            },
             username: {
             	required: true
             },
@@ -62,13 +59,4 @@ $(function(){
     });
 
 });
-
-$(".submit").click(function(){
-	
-	var name = $("#inputFname").val();
-	
-	if(name==""){
-		swal("Error!", "Some fields has been missed!", "error");
-	}
-})
 

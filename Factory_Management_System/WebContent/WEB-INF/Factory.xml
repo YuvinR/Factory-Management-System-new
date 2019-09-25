@@ -193,6 +193,13 @@
             
         ]]>
 	</query>
+	
+		<query id="get_emp_in_leave">
+         <![CDATA[        
+            select CONCAT(fname +" " + lname) from emp as e where e.eid = ?
+            
+        ]]>
+	</query>
 <!-- LEAVE END -->
 
 <!-- MACHINE BEGIN -->
@@ -217,6 +224,25 @@
         ]]>
 	</query>
 <!-- MACHINE END -->
+
+<!-- Login Handling -->
+<query id="login_handling">
+	   <![CDATA[        
+            	select * from login as l where l.username = ?, password = ?, designation = ?
+        ]]>
+</query>
+
+<query id="find_designation">
+	   <![CDATA[        
+            	select designation from login as l where l.username = ?, password = ?
+        ]]>
+</query>
+
+<query id="find_employee">
+	   <![CDATA[        
+            	select * from login as l where l.username = ?, password = ?, designation = ?
+        ]]>
+</query>
 </Querys>
 
 

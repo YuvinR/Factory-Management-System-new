@@ -82,8 +82,13 @@ public static final String QUERY_XML = "queryFilePath";
 
 	public static final String QUERY_ID_UPDATE_LOGIN = "update_logins";
 	
+	public static final String QUERY_ID_LOGIN_CREDS = "login_handling";
+	
+	public static final String QUERY_ID_FIND_DESIGNATION = "find_designation";
+	
+	
 	/* leave */
-	public static final String LEAVE_ID_PRIFIX = "LE1";
+	public static final String LEAVE_ID_PRIFIX = "LE0";
 	
 	public static final String QUERY_ID_GET_LEAVE_ID = "leave_by_id";
 	
@@ -95,7 +100,7 @@ public static final String QUERY_XML = "queryFilePath";
 
 	public static final String QUERY_ID_REMOVE_LEAVE  = "remove_leave";
 	
-	
+	public static final String QUERY_ID_GET_EMP_IN_LEAVE = "get_emp_in_leave";
 	/* maintanence */
 	
 	public static final String MACHINE_ID_PRIFIX = "M1";
