@@ -498,7 +498,8 @@
 									</div>
 									<div class="row">
 										<div class="form-group col-md-6">
-											<label for="inputContact">Contact</label> <input type="text"
+											<label for="inputContact">Contact</label>
+											 <input type="text"
 												class="form-control" name="contact" id="inputContact"
 												placeholder="Contact">
 												<span id="spnPhoneStatus"></span>

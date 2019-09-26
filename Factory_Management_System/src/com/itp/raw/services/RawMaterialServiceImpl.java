@@ -284,12 +284,12 @@ public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) 
 		connection = DBConnection.getDBConnection();
 		preparedstatement = connection
 				.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_UPDATE_RawMaterial));
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, rmaterial.getRawMaterialName());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getRawMaterialDes());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getStoreID());
-		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getUnitPrice());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, rmaterial.getStatus());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, rmaterial.getRawMaterialID());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, rmaterial.getRawMaterialName());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, rmaterial.getRawMaterialDes());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getStoreID());
+		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getUnitPrice());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getStatus());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, rmaterial.getRawMaterialID());
 		preparedstatement.executeUpdate();
 
 	}catch (SQLException | SAXException | IOException | ParserConfigurationException | 

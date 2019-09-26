@@ -85,11 +85,11 @@
   <div class="container">
   
    <div class="col-5 mx-auto title pb-5">
-         <h2>Supplier Management</h2>
+         <h1>Supplier Management</h1>
    </div>
   
    <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3">
+    <div class="col-6 col-md-4">
      <div class="inventryopt">
       <div class="pic">
 
@@ -104,7 +104,7 @@
           </div>
       </div>
 
-             <div class="col-sm-12 col-md-6 col-lg-3">
+             <div class="col-6 col-md-4">
      <div class="inventryopt">
       <div class="pic">
           <i class="far fa-registered fa-3x"></i>
@@ -118,7 +118,7 @@
           </div>
       </div>
 
-             <div class="col-sm-12 col-md-6 col-lg-3">
+           <!--   <div class="col-sm-12 col-md-6 col-lg-3">
      <div class="inventryopt">
       <div class="pic">
 
@@ -131,9 +131,9 @@
          </div>
          <div class="bt"> <button class="btn btn-primary" type="submit">Add Payments</button></div>
           </div>
-      </div>
+      </div> -->
 
-    <div class="col-sm-12 col-md-6 col-lg-3">
+    <div class="col-6 col-md-4">
      <div class="inventryopt">
       <div class="pic">
 

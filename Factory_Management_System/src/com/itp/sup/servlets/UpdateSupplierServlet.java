@@ -25,7 +25,7 @@ public class UpdateSupplierServlet extends HttpServlet {
      */
     public UpdateSupplierServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
@@ -53,6 +53,8 @@ public class UpdateSupplierServlet extends HttpServlet {
 		String supemail = request.getParameter("email");
 		String supaddress = request.getParameter("address");
 		String pid = request.getParameter("proId");
+		Double qty = (Double.parseDouble(request.getParameter("Qty")));
+		System.out.println(qty);
 		
 		supplier.setSupplierName(supname);
 		supplier.setSupplierID(sid);
@@ -61,6 +63,7 @@ public class UpdateSupplierServlet extends HttpServlet {
 		supplier.setAddress(supaddress);
 		supplier.setEmail(supemail);
 		supplier.setProductId(pid);
+		supplier.setQty(qty);
 		
 		ISupplierServices iSupplierServices = new SupplierServiceImpl();
 		iSupplierServices.updateSupplier(sid, supplier);

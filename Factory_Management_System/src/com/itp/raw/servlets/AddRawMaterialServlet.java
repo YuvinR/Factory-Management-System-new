@@ -73,13 +73,13 @@ public class AddRawMaterialServlet extends HttpServlet {
 				 
 				rm.setRawMaterialID(item.getString());
 			
-			}else if(textInput.equals("rImage")) {
+			}else if(textInput.equals("image")) {
 				
 				try {
 					
-					String name = "C:\\Users\\HP\\Desktop\\NewITP\\Factory-Management-System-new\\Factory_Management_System\\WebContent\\rMaterialImages\\" 
+					String name = "C:\\Users\\HP\\Desktop\\NewITP\\Factory-Management-System-new\\Factory_Management_System\\WebContent\\images\\rMaterialImages" 
 							+ "\\" + item.getName();
-					
+					System.out.println(item.getName());
 					item.write(new File(name));
 					rm.setImage(item.getName());
 							

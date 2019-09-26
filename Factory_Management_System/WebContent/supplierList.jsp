@@ -132,9 +132,7 @@
                     </ul>
                 </li> -->
                 
-                <li>
-                    <a href="#">Profile</a>
-                </li>
+               
                 
                  <li>
                     <a href="supplierList.jsp">Add Supplier</a>
@@ -164,9 +162,7 @@
                        
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Settings</a>
-                </li>
+              
                
             </ul>
 
@@ -200,7 +196,7 @@
      <div class="form-group has-search">
 		<span class="fa fa-search form-control-feedback"></span>
 		<input type="text" id="search" name="search" onkeyup="Search()"
-			class="form-control purple lighten-1" placeholder="Search">
+			class="form-control purple lighten-1" placeholder="Search by id...">
 	</div>
 
      
@@ -231,6 +227,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
                         <th scope="col">Raw Material ID</th>
+                        <th scope="col">Raw Material Qty (Kg)</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -252,6 +249,7 @@
                         <td data-target="emailS"><%=supplier.getEmail() %></td>
                         <td data-target="addressS"><%=supplier.getAddress() %></td>
 						<td data-target="pidS"><%=supplier.getProductId() %></td>
+						<td data-target="qtyS"><%=supplier.getQty() %></td>
 						
 		
 					
@@ -274,6 +272,7 @@
                       <th scope="col">Email</th>
                       <th scope="col">Address</th>
                       <th scope="col">Raw Material ID</th>
+                      <th scope="col">Raw Material Qty (Kg)</th>
                       <th scope="col">edit</th>
                       <th scope="col">delete</th>
                   </tr>
@@ -343,13 +342,21 @@
 
                     <div class="form-group">
                         <label for="validation2">Raw Material ID</label>
-                        <input type="text" class="form-control" name="proId" id="pId" placeholder="Product Name" required>
+                        <input type="text" class="form-control" name="proId" id="PId" placeholder="Raw Material ID" required>
                         <div class="invalid-feedback">
                             Please provide a Raw Material ID.
                         </div>
                     </div>
 
-    
+					 <div class="form-group">
+		                        <label for="validation3">Raw Material Quantity</label>
+		                        <input type="text" class="form-control" name="Qty" id="rQty" placeholder="Quantity" required>
+		                        <div class="invalid-feedback">
+		                            Please provide a Raw Material Quantity.
+		                        </div>
+		                    </div>
+					
+		    
 
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
@@ -427,6 +434,7 @@
                     <div class="form-group">
                         <label for="validation1">Supplier Name</label>
                         <input type="text" class="form-control" name="supName" id="validation1" placeholder="Supplier Name" required>
+                         <span id="spnSupNameStatus"></span>
                          <div class="invalid-feedback">
                             Please provide a supplier name.
                         </div> 
@@ -449,10 +457,20 @@
 						</select>
 					</div>
 					
+					          <div class="form-group">
+                        <label for="validation2">Raw Material Qty</label>
+                        <input type="text" class="form-control" name="Qty" id="validation2" placeholder="Raw Material Quantity" required>
+                            <span id="spnRawQtyStatus"></span>
+                             <div class="invalid-feedback">
+                                Please provide the Raw Material Quantity.
+                            </div> 
+
+                    </div>
 					
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
                         <input type="text" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
+                            <span id="spnContactStatus"></span>
                              <div class="invalid-feedback">
                                 Please provide a contact number.
                             </div> 
@@ -462,6 +480,7 @@
                     <div class="form-group">
                         <label for="validation5">Email</label>
                         <input type="text" class="form-control" name="email" id="validation5" placeholder="Email" required>
+                        <span id="spnEmailStatus"></span>
                          <div class="invalid-feedback">
                             Please provide a valid email.
                         </div> 
@@ -480,6 +499,7 @@
                   <div class="modal-footer">
                   
                     <input class="btn btn-primary btn-block" type="submit" value="Confirm">
+                    <input class="btn btn-warning btn-block"  type="button" onClick="autoFill(); return true;" Value="Add Demo Data">
                   
                   </div>
                      </form>
@@ -605,6 +625,7 @@ $(document).ready(function(){
 		var email = $('#'+id).children('td[data-target=emailS]').text();
 		var address = $('#'+id).children('td[data-target=addressS]').text();
 		var productID = $('#'+id).children('td[data-target=pidS]').text();
+		var productQty = $('#'+id).children('td[data-target=qtyS]').text();
 		var supplierID = $('#'+id).children('td[data-target=idS]').text();
 		
 		$('#sID').val(supplierID); 
@@ -612,7 +633,8 @@ $(document).ready(function(){
         $('#sTelNo').val(contact);
         $('#sEmail').val(email); 
         $('#sAddress').val(address);
-        $('#pId').val(productID);
+        $('#PId').val(productID);
+        $('#rQty').val(productQty);
         
 
   	  
@@ -648,5 +670,210 @@ $(document).ready(function(){
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
    -->
+   
+ <!-- validation for phone number -->  
+<script>
+$(document).ready(function() {
+    $('#validation4').blur(function(e) {
+        if (validatePhone('validation4')) {
+            $('#spnContactStatus').html('Valid');
+            $('#spnContactStatus').css('color', 'green');
+        }
+        else {
+            $('#spnContactStatus').html('Invalid');
+            $('#spnContactStatus').css('color', 'red');
+        }
+    });
+});
+
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /^\d{10}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<!-- validation for email -->  
+<script>
+$(document).ready(function() {
+    $('#validation5').blur(function(e) {
+        if (validateEmail('validation5')) {
+            $('#spnEmailStatus').html('Valid');
+            $('#spnEmailStatus').css('color', 'green');
+        }
+        else {
+            $('#spnEmailStatus').html('Invalid');
+            $('#spnEmailStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateEmail(txtEmail) {
+    var b = document.getElementById(txtEmail).value;
+    var filter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (filter.test(b)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<!-- validation for all letters in supplier name field -->  
+<script>
+$(document).ready(function() {
+    $('#validation1').blur(function(e) {
+        if (validateSupName('validation1')) {
+            $('#spnSupNameStatus').html('Valid');
+            $('#spnSupNameStatus').css('color', 'green');
+        }
+        else {
+            $('#spnSupNameStatus').html('Invalid');
+            $('#spnSupNameStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateSupName(txtName) {
+    var c = document.getElementById(txtName).value;
+    var filter = /^[A-Za-z]+$/;
+    if (filter.test(c)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<!-- validation for all numbers in field -->  
+<script>
+$(document).ready(function() {
+    $('#validation2').blur(function(e) {
+        if (validateQuantity('validation2')) {
+            $('#spnRawQtyStatus').html('Valid');
+            $('#spnRawQtyStatus').css('color', 'green');
+        }
+        else {
+            $('#spnRawQtyStatus').html('Invalid');
+            $('#spnRawQtyStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateQuantity(txtQty) {
+    var c = document.getElementById(txtQty).value;
+    var filter = /^[0-9]+$/;
+    if (filter.test(c)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<script type="text/javascript">
+
+	function autoFill(){
+		
+		document.getElementById('validation1').value = "Sanath Perera";
+		document.getElementById('inputProID').value = "RM12";
+		document.getElementById('validation2').value = "50";
+		document.getElementById('validation4').value = "0707507514";
+		document.getElementById('validation5').value = "sanath@gmail.com";
+		document.getElementById('validation6').value = "Matara";
+
+	}
+
+</script>
+
+<!-- validation for all letters in supplier name in update field -->  
+<!-- <script>
+$(document).ready(function() {
+    $('#sName').blur(function(e) {
+        if (validateSupName1('sName')) {
+            $('#spnSupNameStatus').html('Valid');
+            $('#spnSupNameStatus').css('color', 'green');
+        }
+        else {
+            $('#spnSupNameStatus').html('Invalid');
+            $('#spnSupNameStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateSupName1(txtName) {
+    var c = document.getElementById(txtName).value;
+    var filter = /^[A-Za-z]+$/;
+    if (filter.test(c)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+ -->
+ <!-- validation for phone number in update-->  
+<!-- <script>
+ $(document).ready(function() {
+    $('#sTelNo').blur(function(e) {
+        if (validatePhone1('sTelNo')) {
+            $('#spnContactStatus').html('Valid');
+            $('#spnContactStatus').css('color', 'green');
+        }
+        else {
+            $('#spnContactStatus').html('Invalid');
+            $('#spnContactStatus').css('color', 'red');
+        }
+    });
+});
+
+function validatePhone1(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /^\d{10}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>  -->
+
+<!-- validation for email in update-->  
+<!-- <script>
+$(document).ready(function() {
+    $('#sEmail').blur(function(e) {
+        if (validateEmail1('sEmail')) {
+            $('#spnEmailStatus').html('Valid');
+            $('#spnEmailStatus').css('color', 'green');
+        }
+        else {
+            $('#spnEmailStatus').html('Invalid');
+            $('#spnEmailStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateEmail1(txtEmail) {
+    var b = document.getElementById(txtEmail).value;
+    var filter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (filter.test(b)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+ -->
 </body>
 </html>

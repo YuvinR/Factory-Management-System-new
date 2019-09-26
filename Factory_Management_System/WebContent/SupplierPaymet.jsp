@@ -57,9 +57,9 @@
 </head>
 <body>
 
-<%
+<%-- <%
 	double val = 0;
-%>
+%> --%>
   <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
@@ -349,9 +349,9 @@
 							%>
                             <option selected="" value="Default">Choose...</option>
                             <%while(resultSet2.next()){ 
-                            	String rawid = resultSet2.getString(1);
+                            /* 	String rawid = resultSet2.getString(1);
                             	supPaymentServiceImpl supPaymentServiceImpl = new supPaymentServiceImpl();
-                            	val = supPaymentServiceImpl.getUnitPrice(rawid);
+                            	val = supPaymentServiceImpl.getUnitPrice(rawid); */
                             %>
                             <option><%=resultSet2.getString(1) %></option>
                            
@@ -374,11 +374,13 @@
                     <div class="form-group">
                         <label for="validation5">Unit Price</label>
                         
-                        <input type="text" class="form-control" name="uPrice" id="validation5" value="<%=val%>" Readonly>
+                        
+                        <input type="text" class="form-control" name="uPrice" id="validation5" >
                        
                     </div>
                     <div class="form-group">
                         <label for="validation6">Total</label>
+                        
                         <input type="text" class="form-control" name="total" id="validation6" placeholder="Total" required>
                        
                     </div>
@@ -475,7 +477,7 @@
 		}
 	</script>
 
-<script>
+<!-- <script>
 		$(document).ready(
 
 		function() {
@@ -489,7 +491,7 @@
 			})
 		});
 
-	<!-- 	$('#deleteServlet').click(function() {
+	 	$('#deleteServlet').click(function() {
 
 			var id = $('#deleteSupPayment').val();
 
@@ -506,7 +508,7 @@
 			});
 
 		});
-	</script> -->
+	</script>  -->
 	
 		<script>
 
@@ -517,14 +519,11 @@
 		})
 	</script>
 	
-		<script>
 
-		$(document).on("click", ".deletemodal", function () {
-		     var supid = $(this).data('id');
-		     $(".modal-footer #deleteSupPayment").val( supid );
-		   
-		})
-	</script>
             	
 </body>
 </html>
+
+	<!-- String rawid = resultSet2.getString(1);
+                            	supPaymentServiceImpl supPaymentServiceImpl = new supPaymentServiceImpl();
+                            	val = supPaymentServiceImpl.getUnitPrice(rawid); -->

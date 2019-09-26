@@ -140,7 +140,7 @@ public class supPaymentServiceImpl implements ISupPaymentServices {
 			 */
 			if (supPaymentID != null && !supPaymentID.isEmpty()) {
 				/*
-				 * Get employee by ID query will be retrieved from
+				 * Get payment by ID query will be retrieved from
 				 * Factory.xml
 				 */
 				preparedstatement = connection
@@ -188,29 +188,25 @@ public class supPaymentServiceImpl implements ISupPaymentServices {
 		return supPaymentList;
 	}
 
-	public double getUnitPrice(String rawID) {
-		
-		double value = 0;
-		connection = DBConnection.getConnection();
-		
-		try {
-			preparedstatement = connection.prepareStatement("SELECT r.uPrice FROM raw_material r WHERE r.rID=?");
-			preparedstatement.setString(1,rawID);
-			ResultSet resultSet = preparedstatement.executeQuery();
-			
-			if(resultSet.next()) {
-				
-				value = resultSet.getDouble(1);
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 
-		System.out.println("Value: " + value);
-		return value;
-	}
+	/*
+	 * public double getUnitPrice(String rawID) {
+	 * 
+	 * double value = 0; connection = DBConnection.getConnection();
+	 * 
+	 * try { preparedstatement =
+	 * connection.prepareStatement("SELECT uPrice FROM raw_material  WHERE rID=?");
+	 * preparedstatement.setString(1,rawID); ResultSet resultSet =
+	 * preparedstatement.executeQuery();
+	 * 
+	 * if(resultSet.next()) {
+	 * 
+	 * value = resultSet.getDouble(1); }
+	 * 
+	 * } catch (SQLException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); }
+	 * 
+	 * System.out.println("Value: " + value); return value; }
+	 */
 
 	@Override
 	public void removeSupPayment(String supPaymentID) {

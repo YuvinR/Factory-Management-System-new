@@ -49,7 +49,8 @@ public class AddSupplierServlet extends HttpServlet {
 				supplier.setEmail(request.getParameter("email"));
 				supplier.setAddress(request.getParameter("address"));
 				supplier.setProductId(request.getParameter("proId"));
-				
+				supplier.setQty(Double.parseDouble(request.getParameter("Qty")));
+
 				
 				ISupplierServices iSupplierServices = new SupplierServiceImpl();
 				iSupplierServices.addSupplier(supplier);

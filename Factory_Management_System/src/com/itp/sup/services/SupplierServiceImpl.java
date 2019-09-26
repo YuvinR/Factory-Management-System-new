@@ -59,6 +59,7 @@ public class SupplierServiceImpl implements ISupplierServices {
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, supplier. getEmail());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, supplier.getAddress());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, supplier.getProductId());
+			preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_SEVEN, supplier.getQty());
 			preparedstatement.execute();
 			connection.commit();
 
@@ -208,6 +209,7 @@ private ArrayList<Supplier> actionOnSupplier(String supplierID) {
 			supplier.setEmail(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
 			supplier.setAddress(resultSet.getString(CommonConstants.COLUMN_INDEX_FIVE));
 			supplier.setProductId(resultSet.getString(CommonConstants.COLUMN_INDEX_SIX));
+			supplier.setQty(resultSet.getDouble(CommonConstants.COLUMN_INDEX_SEVEN));
 			supplierList.add(supplier);
 		}
 
@@ -245,11 +247,11 @@ private ArrayList<Supplier> actionOnSupplier(String supplierID) {
 public Supplier updateSupplier(String supplierID, Supplier supplier) {
 
 	/*
-	 * Before fetching employee it checks whether employee ID is available
+	 * Before fetching supplier it checks whether supplier ID is available
 	 */
 	if (supplierID != null && !supplierID.isEmpty()) {
 		/*
-		 * Update employee query will be retrieved from EmployeeQuery.xml
+		 * Update employee query will be retrieved from Factory.xml
 		 */
 		try {
 			connection = DBConnection.getDBConnection();
@@ -260,7 +262,8 @@ public Supplier updateSupplier(String supplierID, Supplier supplier) {
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, supplier.getEmail());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, supplier.getAddress());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, supplier.getProductId());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, supplier.getSupplierID());
+			preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_SIX,  supplier.getQty());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN,supplier.getSupplierID());
 			preparedstatement.executeUpdate();
 
 		} catch (SQLException | SAXException | IOException | ParserConfigurationException

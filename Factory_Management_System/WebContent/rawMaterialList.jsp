@@ -119,7 +119,7 @@
 						<li><a href="#">Home 3</a></li>
 					</ul></li> -->
 					
-				<li><a href="#">Profile</a></li>
+				<!-- <li><a href="#">Profile</a></li> -->
 				
 				<li><a href="supplierList.jsp">Add Supplier</a></li>
 				
@@ -169,7 +169,7 @@
 						<div class="form-group has-search">
 							<span class="fa fa-search form-control-feedback"></span> <input
 								type="text" id="search" name="search" onkeyup="Search()"
-								class="form-control purple lighten-1" placeholder="Search">
+								class="form-control purple lighten-1" placeholder="Search by id...">
 						</div>
 
 
@@ -221,7 +221,7 @@
 						<tr id="<%=rMaterial.getRawMaterialID()%>">
 							<td data-target="idR"><%=rMaterial.getRawMaterialID() %></td>
 							<td data-target="imgR"><img class="table-img" style="border-radius: 70px;width: 55px;"
-								src="images/imagefiles/<%=rMaterial.getImage()%>"></td>
+								src="images/rMaterialImages/<%=rMaterial.getImage()%>"></td>
 							<td data-target="nameR"><%=rMaterial.getRawMaterialName() %></td>
 							<td data-target="desR"><%=rMaterial.getRawMaterialDes() %></td>
 							<td data-target="stID"><%=rMaterial.getStoreID() %></td>
@@ -310,6 +310,7 @@
 							<input type="text"
 								class="form-control" name="rName" id="validation1"
 								placeholder="Raw Material Name" required>
+								 <span id="spnRawNameStatus"></span>
 							<div class="invalid-feedback">Please provide a material
 								name.</div>
 						</div>
@@ -337,6 +338,7 @@
 							<label for="validation4">Unit Price</label> <input type="text"
 								class="form-control" name="unitPrice" id="validation4"
 								placeholder="Unit Price" required>
+								<span id="spnRawPriceStatus"></span>
 							<div class="invalid-feedback">Please provide a Unit Price.
 							</div>
 						</div>
@@ -354,6 +356,8 @@
 
 							<input id="btnConfirm" class="btn btn-primary btn-block" type="submit"
 								value="Submit">
+							<input class="btn btn-warning btn-block"  type="button" onClick="autoFill(); return true;" Value="Add Demo Data">
+								
 
 						</div>
 					</form>
@@ -645,6 +649,75 @@
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>  -->
+
+
+<!-- validation for all letters in raw material name field -->  
+<script>
+$(document).ready(function() {
+    $('#validation1').blur(function(e) {
+        if (validateRawName('validation1')) {
+            $('#spnRawNameStatus').html('Valid');
+            $('#spnRawNameStatus').css('color', 'green');
+        }
+        else {
+            $('#spnRawNameStatus').html('Invalid');
+            $('#spnRawNameStatus').css('color', 'red');
+        }
+    });
+});
+
+function validateRawName(txtName) {
+    var c = document.getElementById(txtName).value;
+    var filter = /^[A-Za-z]+$/;
+    if (filter.test(c)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<!-- validation for price field -->  
+<script>
+$(document).ready(function() {
+    $('#validation4').blur(function(e) {
+        if (validatePrice('validation4')) {
+            $('#spnRawPriceStatus').html('Valid');
+            $('#spnRawPriceStatus').css('color', 'green');
+        }
+        else {
+            $('#spnRawPriceStatus').html('Invalid');
+            $('#spnRawPriceStatus').css('color', 'red');
+        }
+    });
+});
+
+function validatePrice(txtPrice) {
+    var c = document.getElementById(txtPrice).value;
+    var filter = /^[0-9]+$/;
+    if (filter.test(c)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+<script type="text/javascript">
+
+	function autoFill(){
+		
+		document.getElementById('validation1').value = "Bamboo Sticks";
+		document.getElementById('validation2').value = "Mainly used for the production of incense sticks";
+		document.getElementById('inputstoreID').value = "ST002";
+		document.getElementById('validation4').value = "10";
+		document.getElementById('validation5').value = "Active";
+
+	}
+
+</script>
 
 </body>
 </html>

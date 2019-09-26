@@ -84,8 +84,8 @@
 	<!-- Select all supplier Query -->
 	<query id="insert_supplier">
         <![CDATA[
-          	insert into supplier (supID, supName, telNo, email, address, proId) 
-          	values (?, ?, ?, ?, ?, ?)
+          	insert into supplier (supID, supName, telNo, email, address, proId, Qty) 
+          	values (?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -114,7 +114,7 @@
 	<query id="update_supplier">
          <![CDATA[        
             update supplier as s 
-            set s.supName = ?, s.telNo = ?, s.email = ?, s.address = ?, s.proId = ?
+            set s.supName = ?, s.telNo = ?, s.email = ?, s.address = ?, s.proId = ?, s.Qty = ?
             where s.supID = ?
         ]]>
 	</query>
@@ -164,7 +164,7 @@
 	<query id="update_rawMaterial">
          <![CDATA[        
             update raw_material as rm 
-            set rm.rName = ?, rm.Image, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status = ? 
+            set rm.rName = ?,  rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status = ? 
             where rm.rID = ?
         ]]>
 	</query>

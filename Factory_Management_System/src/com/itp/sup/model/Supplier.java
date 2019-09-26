@@ -13,6 +13,18 @@ public class Supplier {
 	private String email;
 	
 	private String address;
+	
+	private Double qty;
+
+
+
+	public Double getQty() {
+		return qty;
+	}
+
+	public void setQty(Double qty) {
+		this.qty = qty;
+	}
 
 	public String getSupplierID() {
 		return supplierID;
